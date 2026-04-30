@@ -63,14 +63,73 @@
 
          
         .nav-bar { background: var(--deep-black); padding: 15px; display: flex; gap: 15px; justify-content: center; border-bottom: 2px solid var(--hot-pink); }
+         
         .nav-btn {
-            background: #000; color: var(--hot-pink); text-decoration: none; padding: 10px 20px; 
-            display: inline-block; position: relative; border: 2px solid var(--hot-pink);
-            border-radius: var(--inner-radius); font-weight: bold; font-size: 0.85rem; text-transform: uppercase;
-            transition: all 0.1s ease; box-shadow: 0px 4px 0px var(--hot-pink); top: -4px;
+            background: #111; 
+            color: var(--hot-pink); 
+            text-decoration: none; 
+            padding: 10px 20px; 
+            display: inline-block; 
+            position: relative; 
+            border: 2px solid var(--hot-pink);
+            border-radius: var(--inner-radius); 
+            font-weight: bold; 
+            font-size: 0.85rem; 
+            text-transform: uppercase;
+            transition: all 0.1s ease; 
+            box-shadow: 0px 4px 0px var(--hot-pink); 
+            top: -4px;
         }
-        .nav-btn:hover { top: -2px; box-shadow: 0px 2px 0px var(--hot-pink); background: #111; color: #fff; }
-        .nav-btn:active { top: 0px; box-shadow: 0px 0px 0px var(--hot-pink); background: var(--hot-pink); color: #000; }
+
+        .nav-btn:hover { 
+            top: -2px; 
+            box-shadow: 0px 2px 0px var(--hot-pink); 
+            background: #222; 
+            color: #fff; 
+        }
+
+         
+        .nav-btn:active {
+            top: 0px; 
+            box-shadow: 0px 0px 0px #00ccff;  
+            background: #00ccff;  
+            color: #000;  
+            border-color: #00ccff;
+        }
+
+         
+        .sidebar-link {
+            display: block; 
+            background: #000; 
+            border: 2px solid var(--hot-pink);
+            border-radius: 8px; 
+            padding: 10px; 
+            margin-bottom: 12px;
+            text-decoration: none; 
+            color: #fff; 
+            font-weight: bold; 
+            font-size: 0.8rem;
+            text-align: center; 
+            position: relative; 
+            transition: all 0.1s; 
+            box-shadow: 0px 4px 0px var(--hot-pink); 
+            top: -4px;
+        }
+
+        .sidebar-link:hover { 
+            top: -2px; 
+            box-shadow: 0px 2px 0px var(--hot-pink); 
+            background: #111; 
+        }
+
+         
+        .sidebar-link:active {
+            top: 0px; 
+            background: #00ccff !important;  
+            color: #000 !important;         
+            border-color: #00ccff !important; 
+            box-shadow: 0px 0px 0px #00ccff !important;
+        }
 
         .marquee-bar { background: var(--deep-black); color: var(--neon-yellow); padding: 6px; border-bottom: 1px solid var(--hot-pink); font-family: monospace; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
 
