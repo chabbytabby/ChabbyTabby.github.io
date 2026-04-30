@@ -14,14 +14,26 @@
             --neon-yellow: #ccff00;
         }
 
-        body {
+       body {
             background-color: #ffb3e6; 
             background-image: url('/images/background04.gif'); 
             background-repeat: repeat;
             background-attachment: fixed;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0; padding: 0; color: #fff;
-            cursor: url('https://cur.cursors-4u.net/nature/nat-10/nat976.cur'), auto;
+            
+             
+            cursor: url('/images/chiikawacursor.png') 0 0, auto;
+        }
+
+         
+        a, button, .nav-btn, .sidebar-link, .sub-nav-btn {
+            cursor: url('/images/chiikawacursor.png') 0 0, pointer;
+        }
+
+         
+        a, button {
+            cursor: url('/images/chiikawacursor.cur'), pointer;
         }
 
         @keyframes blink { 
