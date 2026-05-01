@@ -21,187 +21,155 @@
             background-attachment: fixed;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0; padding: 0; color: #fff;
-            
-             
             cursor: url('/images/chiikawacursor.png') 0 0, auto;
+            position: relative; 
+        }
+
+        a, button, .nav-btn, .sidebar-link, .sub-nav-btn, .draggable-obj { cursor: url('/images/chiikawacursor.png') 0 0, pointer; }
+        a, button { cursor: url('/images/chiikawacursor.cur'), pointer; }
+
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
+        @keyframes sway {
+            0%, 100% { transform: translateX(-8px) rotate(-3deg); }
+            50% { transform: translateX(8px) rotate(3deg); }
         }
 
          
-        a, button, .nav-btn, .sidebar-link, .sub-nav-btn {
-            cursor: url('/images/chiikawacursor.png') 0 0, pointer;
-        }
-
-         
-        a, button {
-            cursor: url('/images/chiikawacursor.cur'), pointer;
-        }
-
-        @keyframes blink { 
-            0% { opacity: 1; transform: scale(1); } 
-            50% { opacity: 0.4; transform: scale(0.9); } 
-            100% { opacity: 1; transform: scale(1); } 
-        }
-
-         
-        .header-wrapper { position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3); }
+        .header-wrapper { position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3); background: var(--deep-black); }
         .top-bar {
-            background: var(--deep-black); padding: 10px 20px;
+            padding: 10px 20px;
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 3px solid var(--hot-pink);
         }
-        .logo-text { font-family: 'Arial Black', sans-serif; font-size: 1.8rem; color: var(--hot-pink); text-shadow: 2px 2px #000; }
         
-        .status-container {
-            display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: bold;
-            background: rgba(255, 255, 255, 0.1); padding: 5px 12px; border-radius: 20px;
-            border: 1px solid var(--hot-pink);
-        }
-        .status-light {
-            width: 10px; height: 10px; background-color: #00ff00; border-radius: 50%;
-            box-shadow: 0 0 10px #00ff00; animation: blink 1.5s infinite ease-in-out;
-        }
+        .logo-container { display: flex; align-items: center; }
+        .logo-container img { max-height: 55px; width: auto; border-radius: 5px; }
 
-         
-        .nav-bar { background: var(--deep-black); padding: 15px; display: flex; gap: 15px; justify-content: center; border-bottom: 2px solid var(--hot-pink); }
-         
+        .status-container { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: bold; background: rgba(255, 255, 255, 0.1); padding: 5px 12px; border-radius: 20px; border: 1px solid var(--hot-pink); }
+        .status-light { width: 10px; height: 10px; background-color: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; animation: blink 1.5s infinite ease-in-out; }
+
+        .nav-bar { padding: 15px; display: flex; gap: 15px; justify-content: center; border-bottom: 2px solid var(--hot-pink); }
         .nav-btn {
-            background: #111; 
-            color: var(--hot-pink); 
-            text-decoration: none; 
-            padding: 10px 20px; 
-            display: inline-block; 
-            position: relative; 
-            border: 2px solid var(--hot-pink);
-            border-radius: var(--inner-radius); 
-            font-weight: bold; 
-            font-size: 0.85rem; 
-            text-transform: uppercase;
-            transition: all 0.1s ease; 
-            box-shadow: 0px 4px 0px var(--hot-pink); 
-            top: -4px;
+            background: #111; color: var(--hot-pink); text-decoration: none; padding: 10px 20px; display: inline-block; position: relative; border: 2px solid var(--hot-pink);
+            border-radius: var(--inner-radius); font-weight: bold; font-size: 0.85rem; text-transform: uppercase; transition: all 0.1s ease; box-shadow: 0px 4px 0px var(--hot-pink); top: -4px;
         }
+        .nav-btn:hover { top: -2px; box-shadow: 0px 2px 0px var(--hot-pink); background: #222; color: #fff; }
+        .nav-btn:active { top: 0px; box-shadow: 0px 0px 0px #00ccff; background: #00ccff; color: #000; border-color: #00ccff; }
 
-        .nav-btn:hover { 
-            top: -2px; 
-            box-shadow: 0px 2px 0px var(--hot-pink); 
-            background: #222; 
-            color: #fff; 
-        }
-
-         
-        .nav-btn:active {
-            top: 0px; 
-            box-shadow: 0px 0px 0px #00ccff;  
-            background: #00ccff;  
-            color: #000;  
-            border-color: #00ccff;
-        }
-
-         
-        .sidebar-link {
-            display: block; 
-            background: #000; 
-            border: 2px solid var(--hot-pink);
-            border-radius: 8px; 
-            padding: 10px; 
-            margin-bottom: 12px;
-            text-decoration: none; 
-            color: #fff; 
-            font-weight: bold; 
-            font-size: 0.8rem;
-            text-align: center; 
-            position: relative; 
-            transition: all 0.1s; 
-            box-shadow: 0px 4px 0px var(--hot-pink); 
-            top: -4px;
-        }
-
-        .sidebar-link:hover { 
-            top: -2px; 
-            box-shadow: 0px 2px 0px var(--hot-pink); 
-            background: #111; 
-        }
-
-         
-        .sidebar-link:active {
-            top: 0px; 
-            background: #00ccff !important;  
-            color: #000 !important;         
-            border-color: #00ccff !important; 
-            box-shadow: 0px 0px 0px #00ccff !important;
-        }
-
-        .marquee-bar { background: var(--deep-black); color: var(--neon-yellow); padding: 6px; border-bottom: 1px solid var(--hot-pink); font-family: monospace; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .marquee-bar { color: var(--neon-yellow); padding: 6px; border-bottom: 1px solid var(--hot-pink); font-family: monospace; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
 
          
         .master-container {
-            display: grid; grid-template-columns: 220px 1fr; max-width: 1100px; 
+            display: grid; 
+            grid-template-columns: 220px 1fr 200px; 
+            max-width: 1200px; 
             margin: 25px auto; background: var(--deep-black); border: 3px solid var(--hot-pink); 
             border-radius: var(--main-radius); box-shadow: 0 10px 40px rgba(255, 0, 255, 0.2);
+            position: relative;
+            z-index: 10; 
         }
 
          
-        .sidebar { background: #111; padding: 15px; border-right: 2px solid var(--hot-pink); border-radius: var(--main-radius) 0 0 var(--main-radius); }
+        .sidebar { background: #111; padding: 15px; border-right: 2px solid var(--hot-pink); border-radius: var(--main-radius) 0 0 var(--main-radius); display: flex; flex-direction: column; }
+        .right-sidebar { background: #111; padding: 15px; border-left: 2px solid var(--hot-pink); border-radius: 0 var(--main-radius) var(--main-radius) 0; display: flex; flex-direction: column; gap: 15px; align-items: center; }
         
-        .sidebar-section-title { 
-            color: var(--hot-pink); font-size: 0.75rem; font-weight: 900; 
-            margin: 15px 0 8px 0; text-transform: uppercase;
-            border-bottom: 1px solid #333; padding-bottom: 3px;
-        }
+        .sidebar-section-title { color: var(--hot-pink); font-size: 0.75rem; font-weight: 900; margin: 15px 0 8px 0; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 3px; }
 
         .sidebar-link {
-            display: block; background: #000; border: 2px solid var(--hot-pink);
-            border-radius: 8px; padding: 10px; margin-bottom: 12px;
-            text-decoration: none; color: #fff; font-weight: bold; font-size: 0.8rem;
-            text-align: center; position: relative; transition: all 0.1s; 
-            box-shadow: 0px 4px 0px var(--hot-pink); top: -4px;
+            display: block; background: #000; border: 2px solid var(--hot-pink); border-radius: 8px; padding: 10px; margin-bottom: 12px;
+            text-decoration: none; color: #fff; font-weight: bold; font-size: 0.8rem; text-align: center; position: relative; transition: all 0.1s; box-shadow: 0px 4px 0px var(--hot-pink); top: -4px;
         }
         .sidebar-link:hover { top: -2px; box-shadow: 0px 2px 0px var(--hot-pink); background: #111; }
-        .sidebar-link:active { top: 0px; box-shadow: 0px 0px 0px var(--hot-pink); background: var(--hot-pink); color: #000; }
+        .sidebar-link:active { top: 0px; background: #00ccff !important; color: #000 !important; border-color: #00ccff !important; box-shadow: 0px 0px 0px #00ccff !important; }
+
+        .right-sidebar img { width: 100%; border: 2px solid #333; border-radius: 8px; }
 
          
-        .main-content { background: #0a0a0a; padding: 25px; border-radius: 0 var(--main-radius) var(--main-radius) 0; min-height: 500px; }
-
+        .main-content { background: #0a0a0a; padding: 25px; min-height: 600px; position: relative; }
+        img { max-width: 100%; height: auto; display: block; }
+        
          
-        .hero-box {
-            border: 4px solid var(--hot-pink); position: relative; 
-            background: #000; border-radius: var(--inner-radius); margin-bottom: 35px;
+        .draggable-obj {
+            cursor: grab;
+            user-select: none; 
         }
-        .hero-box img { width: 100%; display: block; border-radius: calc(var(--inner-radius) - 4px); }
-
-        .hero-label {
-            position: absolute; top: -25px; left: -10px;
-            background: var(--neon-yellow); color: #000; padding: 12px 24px; font-weight: 900;
-            border: 3px solid #000; border-radius: 10px; transform: rotate(-3deg);
-            box-shadow: 5px 5px 0px var(--hot-pink); z-index: 999; 
-        }
-
-        .comm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .tier-box { background: #111; border: 2px solid var(--hot-pink); border-radius: var(--inner-radius); padding: 12px; text-align: center; transition: 0.3s; }
-        .tier-box:hover { box-shadow: 0 0 15px var(--hot-pink); transform: translateY(-5px); }
-        .tier-box img { width: 100%; border: 1px solid #333; border-radius: 8px; margin-bottom: 10px; }
-
-        .workbench { background: #000; border: 2px dashed var(--hot-pink); border-radius: var(--inner-radius); padding: 15px; margin-top: 25px; }
-        .progress-container { background: #222; border: 1px solid var(--hot-pink); height: 28px; border-radius: 50px; margin-top: 10px; overflow: hidden; }
-        .progress-fill { background: linear-gradient(to right, #660066, var(--hot-pink)); height: 100%; }
+        
+        .draggable-obj:active { cursor: grabbing; }
 
          
-        footer { text-align: center; padding: 40px; background: var(--deep-black); color: var(--hot-pink); border-top: 4px solid var(--hot-pink); margin-top: 30px; }
+        .draggable-jar {
+            position: absolute; 
+            bottom: 20px;       
+            left: -200px; 
+            z-index: 99; 
+            width: 220px;       
+            filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.6));
+        }
+        .draggable-jar img { width: 100%; height: auto; pointer-events: none; animation: sway 4s ease-in-out infinite; }
 
-        @media (max-width: 768px) {
+         
+        .bg-cat {
+            position: fixed; 
+            z-index: 1; 
+            filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.8));
+        }
+
+         
+        .magic-sparkle {
+            position: fixed; pointer-events: none; z-index: 999999; width: 6px; height: 6px;
+            background-color: #ffffff; border-radius: 50%; box-shadow: 0 0 6px #ffffff, 0 0 12px var(--hot-pink);
+            animation: fallAndFade 0.8s ease-out forwards;
+        }
+
+        @keyframes fallAndFade {
+            0% { opacity: 1; transform: scale(1) translateY(0); }
+            100% { opacity: 0; transform: scale(0.2) translateY(25px); }
+        }
+
+        .click-sparkle {
+            position: fixed; pointer-events: none; z-index: 999999; width: 8px; height: 8px;
+            background-color: #fff; border-radius: 50%; box-shadow: 0 0 8px #fff, 0 0 15px var(--neon-yellow);
+            animation: explode 0.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+        }
+
+        @keyframes explode {
+            0% { opacity: 1; transform: translate(0, 0) scale(1); }
+            100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0); }
+        }
+
+        footer { position: relative; z-index: 10; text-align: center; padding: 40px; background: var(--deep-black); color: var(--hot-pink); border-top: 4px solid var(--hot-pink); margin-top: 30px; }
+
+        @media (max-width: 1550px) { .bg-cat { display: none; } }
+
+        @media (max-width: 900px) {
             .master-container { grid-template-columns: 1fr; margin: 10px; }
-            .sidebar { border-right: none; border-bottom: 3px solid var(--hot-pink); border-radius: var(--main-radius) var(--main-radius) 0 0; }
-            .comm-grid { grid-template-columns: 1fr; }
+            .sidebar, .right-sidebar { border: none; border-bottom: 3px solid var(--hot-pink); border-radius: 0; }
         }
     </style>
 </head>
 <body>
+
+    <img src="/images/kitty04.gif" class="bg-cat draggable-obj" style="top: 20vh; left: 12vw; width: 140px;" alt="cat">
+    <img src="/images/kitty05.gif" class="bg-cat draggable-obj" style="top: 40vh; left: 8vw; width: 120px;" alt="cat">
+    <img src="/images/kitty06.gif" class="bg-cat draggable-obj" style="top: 60vh; left: 14vw; width: 150px;" alt="cat">
+    <img src="/images/kitty07.gif" class="bg-cat draggable-obj" style="bottom: 15vh; left: 15vw; width: 110px;" alt="cat">
+    
+    <img src="/images/shrimp.png" class="bg-cat draggable-obj" style="top: 20vh; right: 9vw; width: 170px;" alt="cat">
+    <img src="/images/kitty01.gif" class="bg-cat draggable-obj" style="top: 30vh; right: 12vw; width: 160px;" alt="cat">
+    <img src="/images/kitty02.gif" class="bg-cat draggable-obj" style="top: 50vh; right: 9vw; width: 170px;" alt="cat">
+    <img src="/images/kitty03.gif" class="bg-cat draggable-obj" style="bottom: 10vh; right: 14vw; width: 140px;" alt="cat">
+
     <div class="header-wrapper">
         <div class="top-bar">
-            <div class="logo-text">CHABBY TABBY</div>
+            <div class="logo-container">
+                <a href="/">
+                    <img src="/images/introvertkittensignature.png" alt="Introvert Kitten Signature">
+                </a>
+            </div>
             <div class="status-container">
                 <div class="status-light"></div>
-                <span>STATUS: ART MODE</span>
+                <span>STATUS: EEPY</span>
             </div>
         </div>
         <div class="nav-bar">
@@ -221,7 +189,6 @@
             <div class="sidebar-section-title">Artist Links</div>
             <a href="https://x.com/chabbytabbyy" target="_blank" class="sidebar-link">X / TWITTER</a>
             <a href="https://linktr.ee/chabbytabby" target="_blank" class="sidebar-link">LINKTREE</a>
-            <a href="https://ko-fi.com/introvertkitten" target="_blank" class="sidebar-link">KO-FI TIP JAR</a>
             
             <div class="sidebar-section-title">Support & Community</div>
             <a href="https://anelder.org/giving/donation" target="_blank" class="sidebar-link">ADOPT AN ELDER</a>
@@ -239,9 +206,155 @@
         </div>
     </div>
 
+
+            <div class="draggable-jar draggable-obj" id="drag-jar">
+                <a href="https://ko-fi.com/introvertkitten" target="_blank">
+                    <img src="/images/tipjar.png" alt="Tip Jar" title="Drag me! Click to tip!">
+                </a>
+            </div>
+        </div>
+
+        <div class="right-sidebar">
+            <img src="/images/Image01.jpg" alt="Art 1">
+            <img src="/images/Image04.jpg" alt="Art 2">
+            <img src="/images/Image07.jpg" alt="Art 3">
         </div>
     </div>
 
     <footer>© 2026 CHABBYTABBY ART • DESIGNED BY GALILEOCAT • Don't STEAL, TY! </footer>
+
+    <script>
+        
+        
+        
+        let activeDragObj = null;
+        let startX, startY, initialLeft, initialTop;
+        let hasMoved = false;
+
+        document.addEventListener('mousedown', (e) => {
+            
+            hasMoved = false; 
+
+            
+            const dragHandle = e.target.closest('.draggable-obj');
+            if (!dragHandle) return;
+
+            activeDragObj = dragHandle;
+            
+            startX = e.clientX;
+            startY = e.clientY;
+            
+            initialLeft = activeDragObj.offsetLeft;
+            initialTop = activeDragObj.offsetTop;
+
+            e.preventDefault(); 
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!activeDragObj) return;
+            
+            
+            if (Math.abs(e.clientX - startX) > 3 || Math.abs(e.clientY - startY) > 3) {
+                hasMoved = true;
+            }
+
+            activeDragObj.style.left = `${initialLeft + (e.clientX - startX)}px`;
+            activeDragObj.style.top = `${initialTop + (e.clientY - startY)}px`;
+            
+            activeDragObj.style.bottom = 'auto';
+            activeDragObj.style.right = 'auto';
+        });
+
+        document.addEventListener('mouseup', () => {
+            activeDragObj = null;
+        });
+
+        
+        
+        
+        document.addEventListener('mousemove', function(e) {
+            if (Math.random() > 0.5) return; 
+
+            const sparkle = document.createElement('div');
+            sparkle.className = 'magic-sparkle';
+            
+            const randomX = (Math.random() * 14 - 7); 
+            const randomY = (Math.random() * 14 - 7);
+            
+            sparkle.style.left = (e.clientX + randomX - 3) + 'px'; 
+            sparkle.style.top = (e.clientY + randomY - 3) + 'px';
+            
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 800);
+        });
+
+        
+        
+        
+        document.addEventListener('click', function(e) {
+            
+            const numSparkles = 15; 
+            
+            for (let i = 0; i < numSparkles; i++) {
+                const particle = document.createElement('div');
+                
+                particle.style.position = 'fixed';
+                particle.style.left = e.clientX + 'px';
+                particle.style.top = e.clientY + 'px';
+                particle.style.width = '8px';
+                particle.style.height = '8px';
+                particle.style.backgroundColor = '#ccff00';
+                particle.style.borderRadius = '50%';
+                particle.style.boxShadow = '0 0 10px #ccff00, 0 0 20px #ff00ff';
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '9999999';
+                
+                document.body.appendChild(particle);
+
+                const angle = Math.random() * Math.PI * 2; 
+                const velocity = Math.random() * 80 + 30; 
+                
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+
+                const animation = particle.animate([
+                    { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+                    { transform: `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0)`, opacity: 0 }
+                ], {
+                    duration: 600, 
+                    easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)' 
+                });
+
+                animation.onfinish = () => particle.remove();
+            }
+
+            
+            const clickable = e.target.closest('a');
+            
+            
+            if (hasMoved) {
+                e.preventDefault();
+                return;
+            }
+
+            
+            if (clickable && clickable.hasAttribute('href')) {
+                const target = clickable.getAttribute('target');
+                const href = clickable.getAttribute('href');
+                
+                if (target !== '_blank' && !href.startsWith('#')) {
+                    e.preventDefault(); 
+                    
+                    
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 400);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
