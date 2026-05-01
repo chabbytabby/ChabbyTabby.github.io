@@ -156,10 +156,10 @@
     <img src="/images/kitty06.gif" class="bg-cat draggable-obj" style="top: 60vh; left: 14vw; width: 150px;" alt="cat">
     <img src="/images/kitty07.gif" class="bg-cat draggable-obj" style="bottom: 15vh; left: 15vw; width: 110px;" alt="cat">
     
-    <img src="/images/shrimp.png" class="bg-cat draggable-obj" style="top: 20vh; right: 9vw; width: 170px;" alt="cat">
-    <img src="/images/kitty01.gif" class="bg-cat draggable-obj" style="top: 30vh; right: 12vw; width: 160px;" alt="cat">
-    <img src="/images/kitty02.gif" class="bg-cat draggable-obj" style="top: 50vh; right: 9vw; width: 170px;" alt="cat">
-    <img src="/images/kitty03.gif" class="bg-cat draggable-obj" style="bottom: 10vh; right: 14vw; width: 140px;" alt="cat">
+    <img src="/images/shrimp.png" class="bg-cat draggable-obj" style="top: 15vh; right: 9vw; width: 170px;" alt="cat">
+    <img src="/images/kitty01.gif" class="bg-cat draggable-obj" style="top: 25vh; right: 9vw; width: 170px;" alt="cat">
+    <img src="/images/kitty02.gif" class="bg-cat draggable-obj" style="top: 35vh; right: 9vw; width: 170px;" alt="cat">
+    <img src="/images/kitty03.gif" class="bg-cat draggable-obj" style="bottom: 45vh; right: 9vw; width: 270px;" alt="cat">
 
     <div class="header-wrapper">
         <div class="top-bar">
@@ -195,6 +195,7 @@
             <a href="https://anelder.org/giving/donation" target="_blank" class="sidebar-link">ADOPT AN ELDER</a>
             <a href="https://x.com/ChizhForCheii" target="_blank" class="sidebar-link">CHIZH FOR CHEII</a>
         </div>
+
         
         <div class="main-content">
             
@@ -283,7 +284,7 @@
         bottom: 25px;  
         left: 30%;
         transform: translateX(-50%);  
-        max-width: 30%;
+        max-width: 100%;
         z-index: 40;  
         filter: drop-shadow(2px 2px 0px #000);
     }
@@ -353,6 +354,29 @@
             <img src="/images/Image04.jpg" alt="Art 2">
             <img src="/images/Image07.jpg" alt="Art 3">
         </div>
+        
+<div class="music-player-container" style="width: 100%; margin-top: 15px; background: #111; border: 2px solid var(--hot-pink); border-radius: 12px; padding: 12px; text-align: center;">
+    <div class="sidebar-section-title" style="margin-top: 0;">♪ CHABBY BGM ♪</div>
+    
+    <audio id="chabbyAudio" loop style="width: 100%; margin: 10px 0;">
+        <source src="/music/Cheerleader.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div style="display: flex; gap: 8px; justify-content: center; align-items: center; margin: 8px 0;">
+        <button onclick="togglePlay()" id="playBtn"
+                style="background:#000; color:var(--hot-pink); border:2px solid var(--hot-pink); padding:8px 18px; border-radius:8px; font-weight:bold; cursor:pointer; flex: 1;">
+            ▶ PLAY
+        </button>
+        
+        <button onclick="changeVolume(-0.1)" 
+                style="background:#000; color:var(--hot-pink); border:2px solid var(--hot-pink); padding:8px 14px; border-radius:8px; font-weight:bold; cursor:pointer;">-</button>
+        <button onclick="changeVolume(0.1)" 
+                style="background:#000; color:var(--hot-pink); border:2px solid var(--hot-pink); padding:8px 14px; border-radius:8px; font-weight:bold; cursor:pointer;">+</button>
+    </div>
+
+    <small style="color:#ff99cc; font-size:0.75rem;">【=◈︿◈=】</small>
+</div>
     </div>
 
     <footer>© 2026 CHABBYTABBY ART • DESIGNED BY GALILEOCAT • Don't STEAL, TY! </footer>
@@ -466,8 +490,6 @@
             }
 
             
-            const clickable = e.target.closest('a');
-            
             
             if (hasMoved) {
                 e.preventDefault();
@@ -490,5 +512,54 @@
             }
         });
     </script>
+   <script>
+
+let audio = null;
+let isPlaying = false;
+
+function initAudio() {
+    audio = document.getElementById('chabbyAudio');
+    if (!audio) return;
+
+    audio.volume = 0.35; 
+
+    
+    audio.addEventListener('ended', () => {
+        document.getElementById('playBtn').textContent = '▶ PLAY';
+        isPlaying = false;
+    });
+}
+
+function togglePlay() {
+    if (!audio) return;
+    const btn = document.getElementById('playBtn');
+
+    if (audio.paused) {
+        audio.play()
+            .then(() => {
+                btn.textContent = '❚❚ PAUSE';
+                isPlaying = true;
+            })
+            .catch(err => {
+                console.error("Playback failed:", err);
+                alert("Couldn't play music. Make sure the file path is correct!");
+            });
+    } else {
+        audio.pause();
+        btn.textContent = '▶ PLAY';
+        isPlaying = false;
+    }
+}
+
+function changeVolume(delta) {
+    if (!audio) return;
+    let newVol = Math.max(0, Math.min(1, audio.volume + delta));
+    audio.volume = newVol;
+}
+
+
+window.addEventListener('load', initAudio);
+</script>
+
 </body>
 </html>
