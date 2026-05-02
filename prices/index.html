@@ -226,6 +226,119 @@
     top: 0px;
     box-shadow: 0px 0px 0px var(--hot-pink);
 }
+ 
+.sidebar-gif-link, .sidebar-link-alt {
+    display: block;
+    margin-bottom: 12px;
+    text-decoration: none;
+    position: relative;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidebar-gif-link img, .sidebar-link-alt img {
+    display: block;
+    width: 100%; 
+    max-width: 170px;  
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0px 4px 0px var(--hot-pink);  
+    position: relative;
+    top: -4px;
+    transition: all 0.1s;
+}
+
+ 
+.sidebar-gif-link:hover img, .sidebar-link-alt:hover img {
+    top: -2px;
+    box-shadow: 0px 2px 0px var(--hot-pink);
+}
+
+ 
+.sidebar-gif-link:active img {
+    top: 0px;
+    box-shadow: 0px 0px 0px var(--hot-pink);
+}
+
+ 
+.sidebar-link-alt:active img {
+    top: 0px;
+    box-shadow: 0px 0px 0px #00ccff;
+    filter: drop-shadow(0 0 5px #00ccff);
+}
+ 
+        .cat-gutter {
+            position: fixed;
+             
+            top: 50%; 
+            transform: translateY(-50%); 
+            display: flex;
+            flex-direction: column;
+            gap: 8px;  
+            z-index: 1; 
+        }
+
+         
+        .gutter-left { 
+            left: auto !important;  
+            right: calc(50% + 620px) !important; 
+        }
+        
+        .gutter-right { 
+            right: auto !important; 
+            left: calc(50% + 620px) !important; 
+        }
+
+        .cat-sticker {
+            width: 65px;  
+            height: 65px;
+            object-fit: cover;
+            background: white;
+            padding: 4px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .cat-sticker:hover {
+            transform: scale(1.3) rotate(5deg);  
+            z-index: 100;
+            box-shadow: 0 0 15px var(--hot-pink);
+            border-color: var(--hot-pink);
+        }
+
+         
+        @media (max-width: 1400px) {
+            .cat-gutter { display: none; }
+        }
+.gutter-left { left: 20px; }
+.gutter-right { right: 20px; }
+
+.cat-sticker {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    background: white;
+    padding: 4px;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.cat-sticker:hover {
+    transform: scale(1.2) rotate(5deg);
+    z-index: 100;
+    box-shadow: 0 0 15px var(--hot-pink);
+    border-color: var(--hot-pink);
+}
+
+ 
+@media (max-width: 1450px) {
+    .cat-gutter { display: none; }
+}
     </style>
 </head>
 <body>
@@ -276,24 +389,30 @@
 
     <div class="master-container">
         <div class="sidebar">
-            <div class="sidebar-section-title">Navigation</div>
-            <a href="/portfolio" class="sidebar-link">ART GALLERY</a>
-            <a href="/prices" class="sidebar-link">COMMISSION INFO</a>
-            
-            <div class="sidebar-section-title">Artist Links</div>
-
-<a href="https://x.com/chabbytabbyy" target="_blank" class="sidebar-gif-link">
-    <img src="/images/twitterbutton.gif" alt="Twitter">
-</a>
-
-<a href="https://linktr.ee/chabbytabby" target="_blank" class="sidebar-gif-link">
-    <img src="/images/linktreebutton.gif" alt="Linktree">
-</a>
-            
-            <div class="sidebar-section-title">Support & Community</div>
-            <a href="https://anelder.org/giving/donation" target="_blank" class="sidebar-link">ADOPT AN ELDER</a>
-            <a href="https://x.com/ChizhForCheii" target="_blank" class="sidebar-link">CHIZH FOR CHEII</a>
-        </div>
+    <div class="sidebar-section-title">Navigation</div>
+    <a href="/portfolio" class="sidebar-gif-link">
+        <img src="/images/artgallerybutton.gif" alt="Art Gallery">
+    </a>
+    <a href="/prices" class="sidebar-gif-link">
+        <img src="/images/commissioninfo.gif" alt="Commission Info">
+    </a>
+    
+    <div class="sidebar-section-title">Artist Links</div>
+    <a href="https://x.com/chabbytabbyy" target="_blank" class="sidebar-gif-link">
+        <img src="/images/twitterbutton.gif" alt="Twitter">
+    </a>
+    <a href="https://linktr.ee/chabbytabby" target="_blank" class="sidebar-gif-link">
+        <img src="/images/linktreebutton.gif" alt="Linktree">
+    </a>
+    
+    <div class="sidebar-section-title">Support & Community</div>
+    <a href="https://anelder.org/giving/donation" target="_blank" class="sidebar-link-alt">
+        <img src="/images/adoptanelderbutton.gif" alt="Adopt an Elder">
+    </a>
+    <a href="https://x.com/ChizhForCheii" target="_blank" class="sidebar-link-alt">
+        <img src="/images/chizhforcheiibutton.gif" alt="Chizh For Cheii">
+    </a>
+</div>
 
         
         <div class="main-content">
@@ -324,9 +443,9 @@
         </div>
 
         <div class="right-sidebar">
-            <img src="/images/Image01.jpg" alt="Art 1">
-            <img src="/images/Image04.jpg" alt="Art 2">
-            <img src="/images/Image07.jpg" alt="Art 3">
+            <img src="/images/Cats/cat1.png" alt="Cat">
+            <img src="/images/Cats/cat17.png" alt="Cat">
+            <img src="/images/Cats/cat8.png" alt="Cat">
         </div>
         
 <div class="music-player-container" style="width: 100%; margin-top: 15px; background: #111; border: 2px solid var(--hot-pink); border-radius: 12px; padding: 12px; text-align: center;">
@@ -551,4 +670,27 @@ window.addEventListener('load', initAudio);
 </script>
 
 </body>
+<div class="cat-gutter gutter-left">
+    <img src="/images/Cats/cat1.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat2.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat3.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat4.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat5.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat6.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat7.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat8.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat9.png" class="cat-sticker" alt="cat">
+</div>
+
+<div class="cat-gutter gutter-right">
+    <img src="/images/Cats/cat10.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat11.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat12.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat13.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat14.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat15.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat16.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat17.png" class="cat-sticker" alt="cat">
+    <img src="/images/Cats/cat18.png" class="cat-sticker" alt="cat">
+</div>
 </html>
