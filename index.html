@@ -193,6 +193,40 @@
             .master-container { grid-template-columns: 1fr; margin: 10px; }
             .sidebar, .right-sidebar { border: none; border-bottom: 3px solid var(--hot-pink); border-radius: 0; }
         }
+         
+.sidebar-gif-link {
+    display: block;
+    margin-bottom: 12px;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.1s;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidebar-gif-link img {
+    display: block;
+    width: 100%; 
+    max-width: 160px;  
+    height: auto;
+    border-radius: 4px;
+     
+    box-shadow: 0px 4px 0px var(--hot-pink);
+    position: relative;
+    top: -4px;
+    transition: all 0.1s;
+}
+
+.sidebar-gif-link:hover img {
+    top: -2px;
+    box-shadow: 0px 2px 0px var(--hot-pink);
+}
+
+.sidebar-gif-link:active img {
+    top: 0px;
+    box-shadow: 0px 0px 0px var(--hot-pink);
+}
     </style>
 </head>
 <body>
@@ -248,8 +282,14 @@
             <a href="/prices" class="sidebar-link">COMMISSION INFO</a>
             
             <div class="sidebar-section-title">Artist Links</div>
-            <a href="https://x.com/chabbytabbyy" target="_blank" class="sidebar-link">X / TWITTER</a>
-            <a href="https://linktr.ee/chabbytabby" target="_blank" class="sidebar-link">LINKTREE</a>
+
+<a href="https://x.com/chabbytabbyy" target="_blank" class="sidebar-gif-link">
+    <img src="/images/twitterbutton.gif" alt="Twitter">
+</a>
+
+<a href="https://linktr.ee/chabbytabby" target="_blank" class="sidebar-gif-link">
+    <img src="/images/linktreebutton.gif" alt="Linktree">
+</a>
             
             <div class="sidebar-section-title">Support & Community</div>
             <a href="https://anelder.org/giving/donation" target="_blank" class="sidebar-link">ADOPT AN ELDER</a>
