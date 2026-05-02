@@ -7,5 +7,26 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="https://chabbytabby.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://chabbytabby.com/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://chabbytabby.com/links/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Art Gallery</title>
+      <link>https://chabbytabby.com/portfolio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://chabbytabby.com/portfolio/</guid>
+      <description>&lt;h3 id=&#34;-welcome-to-my-gallery&#34;&gt;✨ Welcome to my Gallery!&lt;/h3&gt;&#xA;&lt;p&gt;I am currently organizing my art pieces for the new website. Check back soon for my full portfolio!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Commission Prices &amp; Info</title>
+      <link>https://chabbytabby.com/prices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://chabbytabby.com/prices/</guid>
+      <description>&lt;h3 id=&#34;-current-rates&#34;&gt;📋 Current Rates&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Color Sketch:&lt;/strong&gt; $35.00&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Full Render:&lt;/strong&gt; $85.00&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Custom Character Design:&lt;/strong&gt; Inquire for details!&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;-terms-of-service&#34;&gt;📝 Terms of Service&lt;/h3&gt;&#xA;&lt;p&gt;Payment is required upfront via Ko-Fi or PayPal. Turnaround time is currently 1-2 weeks.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
