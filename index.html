@@ -91,7 +91,7 @@
         }
         
         .logo-container { display: flex; align-items: center; }
-        .logo-container img { max-height: 100px; width: auto; border-radius: 5px; }
+        .logo-container img { max-height: 55px; width: auto; border-radius: 5px; }
 
         .status-container { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: bold; background: rgba(255, 255, 255, 0.1); padding: 5px 12px; border-radius: 20px; border: 1px solid var(--hot-pink); }
         .status-light { width: 10px; height: 10px; background-color: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; animation: blink 1.5s infinite ease-in-out; }
@@ -204,6 +204,7 @@
     
     <img src="/images/shrimp.png" class="bg-cat draggable-obj" style="top: 15vh; right: 9vw; width: 170px;" alt="cat">
     <img src="/images/kitty01.gif" class="bg-cat draggable-obj" style="top: 25vh; right: 9vw; width: 170px;" alt="cat">
+     <img src="/images/meowblinkie.gif" class="bg-cat draggable-obj" style="top: 60vh; right: 9vw; width: 170px;" alt="cat">
     <img src="/images/kitty02.gif" class="bg-cat draggable-obj" style="top: 35vh; right: 9vw; width: 170px;" alt="cat">
     <img src="/images/kitty03.gif" class="bg-cat draggable-obj" style="bottom: 45vh; right: 9vw; width: 270px;" alt="cat">
 
@@ -261,24 +262,27 @@
      
     
      
+    
     .top-art-banner {
         border: 4px solid var(--hot-pink);
         border-radius: var(--inner-radius);
         overflow: hidden;
         margin-bottom: 25px;
         background: #000;
-        position: relative;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        position: relative;  
+        padding-top: 15px;  
+        padding-bottom: 15px;  
     }
+
     .kitty-bar-overlay {
         position: absolute;
         left: 0;
         width: 100%;
         height: auto;
         display: block;
-        z-index: 10;
+        z-index: 10;  
     }
+    
     .kitty-bar-top { top: -2px; }
     .kitty-bar-bottom { bottom: -2px; }
 
@@ -292,116 +296,83 @@
         background: transparent;
         padding: 0;
         box-shadow: none;
+        
+         
         transition: all 0.2s ease;
     }
+    
+     
+    .layered-sticker-block:hover img {
+        filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    }
 
+     
     .layered-image-container {
         position: relative;
         width: 100%;
         text-align: center;
-        padding: 0;
+         
+        padding-top: 0; 
+        padding-bottom: 0;
     }
 
+     
     .layered-base-img {
         width: 100%;
         max-width: 600px;
         border-radius: 8px;
-        border: 2px solid #333;
+        border: 2px solid #333;  
         display: inline-block;
-    }
-
-     
-    .layered-label {
-        position: absolute;
-        top: -8%;
-        left: -6%;
-        width: 52%;
-        max-width: 320px;
-        z-index: 15;
-        border-radius: 12px;
-        box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.65),
-                    inset 0 0 10px rgba(255,255,255,0.4);
-        border: 4px solid #333;
-        background: #000000;
-        padding: 1px;
-        transform: rotate(-8deg);
-        transition: transform 0.4s ease;
     }
 
      
     .layered-welcome {
         position: absolute;
-        top: -25px;
-        left: -6%;
-        max-width: 42%;
-        transform: rotate(-3deg);
-        z-index: 25;
-        filter: drop-shadow(4px 4px 4px #000);
+        top: -20px;  
+        left: -5%;
+        max-width: 40%;
+        transform: rotate(-deg);  
+        z-index: 20;  
+        filter: drop-shadow(3px 3px 0px #000);  
     }
-
      
+    .layered-label {
+        position: absolute;
+        top: -7%;
+        left: -7%;
+        width: 50%;
+        max-width: 320px;
+        z-index: 15;            
+        border-radius: 1px;
+        box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6),
+                    inset 0 0 8px rgba(255,255,255,0.3);
+        border: 1x solid #333;
+        background: #000000;
+        padding: 4px;
+        transform: rotate(-8deg);    
+     
+    }
     .layered-enter {
         position: absolute;
-        bottom: 28px;
-        left: 32%;
-        transform: translateX(-50%) rotate(4deg);
-        max-width: 38%;
-        z-index: 40;
-        filter: drop-shadow(3px 3px 3px #000);
+        bottom: 25px;  
+        left: 30%;
+        transform: translateX(-50%);  
+        max-width: 200%;
+        z-index: 40;  
+        filter: drop-shadow(2px 2px 0px #000);
     }
 
      
-    .layered-sticker-block:hover .layered-label {
-        transform: rotate(-5deg);
-    }
-    .layered-sticker-block:hover img {
-        filter: brightness(1.15) drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
-    }
+    .comm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .tier-box { background: #111; border: 2px solid var(--hot-pink); border-radius: var(--inner-radius); padding: 12px; text-align: center; transition: 0.3s; }
+    .tier-box:hover { box-shadow: 0 0 15px var(--hot-pink); transform: translateY(-5px); }
+    .tier-box img { width: 100%; border: 1px solid #333; border-radius: 8px; margin-bottom: 10px; }
 
      
-    .comm-grid { 
-        display: grid; 
-        grid-template-columns: 1fr 1fr; 
-        gap: 20px; 
-    }
-    .tier-box { 
-        background: #111; 
-        border: 2px solid var(--hot-pink); 
-        border-radius: var(--inner-radius); 
-        padding: 12px; 
-        text-align: center; 
-        transition: 0.3s; 
-    }
-    .tier-box:hover { 
-        box-shadow: 0 0 15px var(--hot-pink); 
-        transform: translateY(-5px); 
-    }
-    .tier-box img { 
-        width: 100%; 
-        border: 1px solid #333; 
-        border-radius: 8px; 
-        margin-bottom: 10px; 
-    }
+    .workbench { background: #000; border: 2px dashed var(--hot-pink); border-radius: var(--inner-radius); padding: 15px; margin-top: 25px; }
+    .progress-container { background: #222; border: 1px solid var(--hot-pink); height: 28px; border-radius: 50px; margin-top: 10px; overflow: hidden; }
+    .progress-fill { background: linear-gradient(to right, #660066, var(--hot-pink)); height: 100%; }
 
-    .workbench { 
-        background: #000; 
-        border: 2px dashed var(--hot-pink); 
-        border-radius: var(--inner-radius); 
-        padding: 15px; 
-        margin-top: 25px; 
-    }
-    .progress-container { 
-        background: #222; 
-        border: 1px solid var(--hot-pink); 
-        height: 28px; 
-        border-radius: 50px; 
-        margin-top: 10px; 
-        overflow: hidden; 
-    }
-    .progress-fill { 
-        background: linear-gradient(to right, #660066, var(--hot-pink)); 
-        height: 100%; 
-    }
 </style>
 
 <div class="top-art-banner">
@@ -415,6 +386,7 @@
         <img src="/images/label01.png" class="layered-label" alt="Label Background">
         <img src="/images/welcome.gif" class="layered-welcome" alt="Welcome">
         <img src="/images/welcomechabby.jpg" class="layered-base-img" alt="Commission info + examples">
+        
         <img src="/images/enter.gif" class="layered-enter" alt="Enter">
     </div>
 </a>
@@ -439,6 +411,8 @@
         <div class="progress-fill" style="width: 75%;"></div>
     </div>
 </div>
+
+
 
 
             <div class="draggable-jar draggable-obj" id="drag-jar">
@@ -626,75 +600,43 @@
             }
         });
     </script>
-  <script>
+   <script>
 
 let audio = null;
 let isPlaying = false;
-let currentSongIndex = 0;
-
-const songs = [
-    { src: "/music/Cheerleader.mp3", title: "Cheerleader" },
-    { src: "/music/song2.mp3", title: "Song Title 2" },
-    { src: "/music/song3.mp3", title: "Song Title 3" },
-    { src: "/music/song4.mp3", title: "Song Title 4" },
-    { src: "/music/song5.mp3", title: "Song Title 5" },
-    { src: "/music/song6.mp3", title: "Song Title 6" },
-    { src: "/music/song7.mp3", title: "Song Title 7" },
-    { src: "/music/song8.mp3", title: "Song Title 8" },
-    { src: "/music/song9.mp3", title: "Song Title 9" },
-    { src: "/music/song10.mp3", title: "Song Title 10" }
-];
 
 function initAudio() {
     audio = document.getElementById('chabbyAudio');
     if (!audio) return;
-    
-    audio.volume = 0.35;
-    
-    
-    loadSong(0);
+
+    audio.volume = 0.35; 
+
     
     audio.addEventListener('ended', () => {
-        nextSong();
+        document.getElementById('playBtn').textContent = '▶ PLAY';
+        isPlaying = false;
     });
-}
-
-function loadSong(index) {
-    currentSongIndex = index;
-    audio.src = songs[index].src;
-    document.getElementById('nowPlaying').textContent = songs[index].title;
-    
-    if (isPlaying) {
-        audio.play();
-    }
 }
 
 function togglePlay() {
     if (!audio) return;
     const btn = document.getElementById('playBtn');
-    
+
     if (audio.paused) {
-        audio.play().then(() => {
-            btn.textContent = '❚❚ PAUSE';
-            isPlaying = true;
-        }).catch(err => console.error(err));
+        audio.play()
+            .then(() => {
+                btn.textContent = '❚❚ PAUSE';
+                isPlaying = true;
+            })
+            .catch(err => {
+                console.error("Playback failed:", err);
+                alert("Couldn't play music. Make sure the file path is correct!");
+            });
     } else {
         audio.pause();
         btn.textContent = '▶ PLAY';
         isPlaying = false;
     }
-}
-
-function nextSong() {
-    let next = currentSongIndex + 1;
-    if (next >= songs.length) next = 0;
-    loadSong(next);
-}
-
-function prevSong() {
-    let prev = currentSongIndex - 1;
-    if (prev < 0) prev = songs.length - 1;
-    loadSong(prev);
 }
 
 function changeVolume(delta) {

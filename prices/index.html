@@ -90,7 +90,7 @@
         }
         
         .logo-container { display: flex; align-items: center; }
-        .logo-container img { max-height: 100px; width: auto; border-radius: 5px; }
+        .logo-container img { max-height: 55px; width: auto; border-radius: 5px; }
 
         .status-container { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: bold; background: rgba(255, 255, 255, 0.1); padding: 5px 12px; border-radius: 20px; border: 1px solid var(--hot-pink); }
         .status-light { width: 10px; height: 10px; background-color: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; animation: blink 1.5s infinite ease-in-out; }
@@ -203,6 +203,7 @@
     
     <img src="/images/shrimp.png" class="bg-cat draggable-obj" style="top: 15vh; right: 9vw; width: 170px;" alt="cat">
     <img src="/images/kitty01.gif" class="bg-cat draggable-obj" style="top: 25vh; right: 9vw; width: 170px;" alt="cat">
+     <img src="/images/meowblinkie.gif" class="bg-cat draggable-obj" style="top: 60vh; right: 9vw; width: 170px;" alt="cat">
     <img src="/images/kitty02.gif" class="bg-cat draggable-obj" style="top: 35vh; right: 9vw; width: 170px;" alt="cat">
     <img src="/images/kitty03.gif" class="bg-cat draggable-obj" style="bottom: 45vh; right: 9vw; width: 270px;" alt="cat">
 
@@ -459,75 +460,43 @@
             }
         });
     </script>
-  <script>
+   <script>
 
 let audio = null;
 let isPlaying = false;
-let currentSongIndex = 0;
-
-const songs = [
-    { src: "/music/Cheerleader.mp3", title: "Cheerleader" },
-    { src: "/music/song2.mp3", title: "Song Title 2" },
-    { src: "/music/song3.mp3", title: "Song Title 3" },
-    { src: "/music/song4.mp3", title: "Song Title 4" },
-    { src: "/music/song5.mp3", title: "Song Title 5" },
-    { src: "/music/song6.mp3", title: "Song Title 6" },
-    { src: "/music/song7.mp3", title: "Song Title 7" },
-    { src: "/music/song8.mp3", title: "Song Title 8" },
-    { src: "/music/song9.mp3", title: "Song Title 9" },
-    { src: "/music/song10.mp3", title: "Song Title 10" }
-];
 
 function initAudio() {
     audio = document.getElementById('chabbyAudio');
     if (!audio) return;
-    
-    audio.volume = 0.35;
-    
-    
-    loadSong(0);
+
+    audio.volume = 0.35; 
+
     
     audio.addEventListener('ended', () => {
-        nextSong();
+        document.getElementById('playBtn').textContent = '▶ PLAY';
+        isPlaying = false;
     });
-}
-
-function loadSong(index) {
-    currentSongIndex = index;
-    audio.src = songs[index].src;
-    document.getElementById('nowPlaying').textContent = songs[index].title;
-    
-    if (isPlaying) {
-        audio.play();
-    }
 }
 
 function togglePlay() {
     if (!audio) return;
     const btn = document.getElementById('playBtn');
-    
+
     if (audio.paused) {
-        audio.play().then(() => {
-            btn.textContent = '❚❚ PAUSE';
-            isPlaying = true;
-        }).catch(err => console.error(err));
+        audio.play()
+            .then(() => {
+                btn.textContent = '❚❚ PAUSE';
+                isPlaying = true;
+            })
+            .catch(err => {
+                console.error("Playback failed:", err);
+                alert("Couldn't play music. Make sure the file path is correct!");
+            });
     } else {
         audio.pause();
         btn.textContent = '▶ PLAY';
         isPlaying = false;
     }
-}
-
-function nextSong() {
-    let next = currentSongIndex + 1;
-    if (next >= songs.length) next = 0;
-    loadSong(next);
-}
-
-function prevSong() {
-    let prev = currentSongIndex - 1;
-    if (prev < 0) prev = songs.length - 1;
-    loadSong(prev);
 }
 
 function changeVolume(delta) {
