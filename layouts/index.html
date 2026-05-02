@@ -1,344 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChabbyTabby || Artist Portal</title>
+{{ define "main" }}
+<style>
+    /* Specific styles just for the homepage layout */
     
-    <style>
-        /* ============================================================
-           1. GLOBAL & BODY STYLES
-           ============================================================ */
-        :root {
-            /* Adjust this variable to change the roundness of the entire site */
-            --main-radius: 25px; 
-            --inner-radius: 15px;
-        }
+    /* --- TOP ART BANNER WITH KITTY OVERLAYS --- */
+    
+    .top-art-banner {
+        border: 4px solid var(--hot-pink);
+        border-radius: var(--inner-radius);
+        overflow: hidden;
+        margin-bottom: 25px;
+        background: #000;
+        position: relative; /* Essential for absolute positioning of the bars */
+        padding-top: 15px; /* Gives space for the top kittybar */
+        padding-bottom: 15px; /* Gives space for the bottom kittybar */
+    }
 
-        body {
-            background-color: #ffb3e6; 
-            background-image: url('/images/background04.gif'); 
-            background-repeat: repeat;
-            background-size: auto;
-            background-attachment: fixed;
-            font-family: Arial, sans-serif;
-            margin: 0; 
-            padding: 0; 
-            color: #000;
-            cursor: url('https://cur.cursors-4u.net/nature/nat-10/nat976.cur'), auto;
-        }
+    .kitty-bar-overlay {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: auto;
+        display: block;
+        z-index: 10; /* Ensures it sits on top of the art */
+    }
+    
+    .kitty-bar-top { top: -2px; }
+    .kitty-bar-bottom { bottom: -2px; }
 
-        @keyframes blink { 
-            0% { opacity: 1; } 
-            50% { opacity: 0.3; } 
-            100% { opacity: 1; } 
-        }
-
-        /* ============================================================
-           2. HEADER & NAVIGATION
-           ============================================================ */
-        .top-bar {
-            background: #000; 
-            color: #fff; 
-            padding: 8px 20px;
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            border-bottom: 4px solid #fff;
-        }
-
-        .logo-text { 
-            font-family: 'Arial Black', Impact, sans-serif; 
-            font-size: 1.6rem; 
-            color: #ff00ff; 
-        }
-
-        .status-light {
-            width: 12px; height: 12px;
-            background-color: #00ff00;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 5px;
-            box-shadow: 0 0 8px #00ff00;
-            animation: blink 1.5s infinite;
-        }
-
-        .nav-bar { 
-            background: #000; 
-            padding: 10px; 
-            display: flex; 
-            gap: 10px; 
-            justify-content: center; 
-        }
-
-        .nav-btn {
-            background: #222; 
-            color: #fff; 
-            text-decoration: none; 
-            padding: 6px 15px;
-            border: 2px solid #fff; 
-            border-radius: var(--inner-radius); /* Rounded Buttons */
-            font-weight: bold; 
-            font-size: 0.8rem;
-            transition: all 0.2s;
-        }
-
-        .nav-btn:hover { 
-            background: #ff00ff; 
-            transform: scale(1.1) rotate(2deg); 
-        }
-
-        .marquee-bar { 
-            background: #000; 
-            color: #ccff00; 
-            padding: 5px; 
-            border-bottom: 2px solid #fff; 
-            font-family: monospace; 
-        }
-
-        /* ============================================================
-           3. SITE STRUCTURE (GRID)
-           ============================================================ */
-        .master-container {
-            display: grid; 
-            grid-template-columns: 200px 1fr; 
-            max-width: 1000px; 
-            margin: 20px auto; 
-            background: #fff;
-            border: 4px solid #000; 
-            border-radius: var(--main-radius); /* Rounded Site Container */
-            box-shadow: 15px 15px 0px rgba(0,0,0,0.2);
-            overflow: hidden; /* Ensures inner corners don't poke out */
-        }
-
-        /* ============================================================
-           4. SIDEBAR STYLES
-           ============================================================ */
-        .sidebar { 
-            background: #000; 
-            padding: 15px; 
-            border-right: 4px solid #000; 
-        }
-
-        .sidebar-title { 
-            color: #00ccff; 
-            font-weight: bold; 
-            text-align: center; 
-            margin-bottom: 15px; 
-            text-transform: uppercase;
-        }
-
-        .faux-banner {
-            background: #fff; 
-            border: 2px solid #000; 
-            border-radius: var(--inner-radius); /* Rounded Sidebar Items */
-            margin-bottom: 15px;
-            transition: transform 0.3s; 
-            cursor: pointer; 
-            display: block; 
-            text-decoration: none;
-            overflow: hidden;
-        }
-
-        .faux-banner:hover { 
-            transform: translateX(8px) translateY(-4px); 
-            box-shadow: -6px 6px 0px #f799ff; 
-        }
-
-        .faux-banner img { 
-            width: 100%; 
-            display: block; 
-            border-bottom: 2px solid #000; 
-        }
-
-        .faux-banner p { 
-            margin: 5px; 
-            font-size: 0.7rem; 
-            font-weight: bold; 
-            color: #000; 
-            text-align: center; 
-        }
-
-        /* ============================================================
-           5. MAIN CONTENT AREA
-           ============================================================ */
-        .main-content { 
-            background: #e8a4ee; 
-            padding: 20px; 
-        }
-
-        /* Showcase Hero Box */
-        .hero-box {
-            border: 5px solid #000; 
-            position: relative; 
-            background: #fff;
-            border-radius: var(--inner-radius); 
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.3); 
-            margin-bottom: 30px;
-            /* REMOVED overflow: hidden from here to let the label pop out */
-        }
-
-        .hero-box img { 
-            width: 100%; 
-            display: block; 
-            /* ADDED border-radius and overflow here to keep art corners rounded */
-            border-radius: calc(var(--inner-radius) - 5px); 
-        }
-
-        /* "Commissions Open" Floating Label */
-        .hero-label {
-            position: absolute; 
-            top: -20px; /* Adjusted slightly for better pop */
-            left: -15px;
-            background: #ffff00; 
-            padding: 10px 20px; 
-            font-weight: bold;
-            border: 3px solid #000; 
-            border-radius: 12px; 
-            transform: rotate(-5deg);
-            box-shadow: 5px 5px 0px #000;
-            z-index: 600; /* Ensures it stays on top of everything */
-        }
-
-        .comm-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 15px; 
-        }
-
-        .tier-box { 
-            background: #fff; 
-            border: 3px solid #000; 
-            border-radius: var(--inner-radius); /* Rounded Tier Boxes */
-            padding: 10px;
-            transition: all 0.3s;
-            overflow: hidden;
-        }
-
-        .tier-box:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 8px 8px 0px #ff00ff; 
-        }
-
-        .tier-box img { 
-            width: 100%; 
-            border: 2px solid #000; 
-            border-radius: 10px;
-        }
-
-        /* Progress Workbench */
-        .workbench { 
-            background: #fff; 
-            border: 3px solid #000; 
-            border-radius: var(--inner-radius); /* Rounded Workbench */
-            padding: 15px; 
-            margin-top: 20px; 
-        }
-
-        .progress-container { 
-            background: #eee; 
-            border: 2px solid #000; 
-            height: 24px; 
-            border-radius: 12px; /* Pill Shape Container */
-            margin: 10px 0; 
-            position: relative; 
-            overflow: hidden; /* Keeps fill inside the round container */
-        }
-
-        .progress-fill { 
-            background: #00ff00; 
-            height: 100%; 
-            width: 60%; 
-            border-right: 2px solid #000; 
-            /* Pill shape for the fill itself */
-            border-radius: 12px 0 0 12px; 
-        }
-
-        /* ============================================================
-           6. FOOTER
-           ============================================================ */
-        footer { 
-            text-align: center; 
-            padding: 40px; 
-            font-size: 0.8rem; 
-            background: #ffb3e6; 
-            border-top: 4px solid #000;
-            border-radius: 0 0 var(--main-radius) var(--main-radius);
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="top-bar">
-        <div class="logo-text">CHABBY TABBY</div>
-        <div style="font-size: 0.8rem; font-weight: bold;">
-            <span class="status-light"></span> STATUS: <span style="color: #00ff00;">ONLINE (DRAWING)</span>
-        </div>
-    </div>
-
-    <div class="nav-bar">
-        <a href="#" class="nav-btn">PORTFOLIO</a>
-        <a href="#" class="nav-btn">PRICES</a>
-        <a href="#" class="nav-btn">T.O.S.</a>
-        <a href="#" class="nav-btn">CONTACT</a>
-    </div>
-
-    <div class="marquee-bar">
-        <marquee>✨ COMMISSIONS CLOSED ✨ CURRENT TURNAROUND TIME: 1-2 WEEKS ✨ DON'T FORGET TO FOLLOW MY KO-FI! ✨</marquee>
-    </div>
-
-    <div class="master-container">
+    /* --- THE LAYERED STICKER BLOCK (Container update) --- */
+    .layered-sticker-block {
+        display: block;
+        text-decoration: none;
+        margin-bottom: 35px;
+        position: relative;
+        border: none;
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
         
-        <div class="sidebar">
-            <div class="sidebar-title">Quick Links</div>
-            <a href="#" class="faux-banner">
-                <img src="/images/Image01.jpg">
-                <p>ART GALLERY</p>
-            </a>
-            <a href="#" class="faux-banner">
-                <img src="/images/Image04.jpg">
-                <p>CLIENT QUEUE</p>
-            </a>
-            <a href="#" class="faux-banner">
-                <img src="/images/Image05.jpg">
-                <p>TIP JAR (TY!)</p>
-            </a>
-        </div>
+        /* Transition still allowed for hover effect on images */
+        transition: all 0.2s ease;
+    }
+    
+    /* Visual changes on hover apply to the images, not the container */
+    .layered-sticker-block:hover img {
+        filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    }
 
-        <div class="main-content">
-            <div class="hero-box">
-                <img src="/images/Image02.jpg">
-                <div class="hero-label">✨ COMMISSIONS CLOSED ✨</div>
-            </div>
+    /* THE STACKING CONTAINER (Targeted updates) */
+    .layered-image-container {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        /* Padding removed to ensure full-bleed to container edges */
+        padding-top: 0; 
+        padding-bottom: 0;
+    }
 
-            <div class="comm-grid">
-                <div class="tier-box">
-                    <div style="font-weight: bold; text-align: center; margin-bottom: 5px;">COLOR SKETCH</div>
-                    <img src="/images/Image03.jpg">
-                    <div style="text-align: center; margin-top: 5px; font-weight: bold;">$35.00</div>
-                </div>
-                <div class="tier-box">
-                    <div style="font-weight: bold; text-align: center; margin-bottom: 5px;">FULL RENDER</div>
-                    <img src="/images/Image06.jpg">
-                    <div style="text-align: center; margin-top: 5px; font-weight: bold;">$85.00</div>
-                </div>
-            </div>
+    /* Base Image (Chabby) targeted styling */
+    .layered-base-img {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 8px;
+        border: 2px solid #333; /* Keeps a small subtle border on the *art*, not the container */
+        display: inline-block;
+    }
 
-            <div class="workbench">
-                <div style="font-weight: bold; text-transform: uppercase; font-size: 0.8rem;">Current Project Status:</div>
-                <p style="font-size: 0.7rem; margin: 5px 0;">Drawing an illustration for @GalileoCat</p>
-                <div class="progress-container">
-                    <div class="progress-fill" style="width: 60%;"></div>
-                </div>
-            </div>
-        </div>
+    /* Welcome Sticker (targeted) */
+    .layered-welcome {
+        position: absolute;
+        top: -20px; /* Adjusting top/left slightly so it feels like it floats outside the container */
+        left: -5%;
+        max-width: 40%;
+        transform: rotate(-deg); /* Tilted sticker look */
+        z-index: 20; /* Above base image */
+        filter: drop-shadow(3px 3px 0px #000); /* Sticker drop-shadow */
+    }
+    /* NEW: Label01 Background Layer */
+    .layered-label {
+        position: absolute;
+        top: -7%;
+        left: -7%;
+        width: 50%;
+        max-width: 320px;
+        z-index: 15;           /* Behind welcome.gif */
+        border-radius: 1px;
+        box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6),
+                    inset 0 0 8px rgba(255,255,255,0.3);
+        border: 1x solid #333;
+        background: #000000;
+        padding: 4px;
+        transform: rotate(-8deg);   /* Negative = counter-clockwise tilt */
+    /* Enter Sticker (targeted) */
+    }
+    .layered-enter {
+        position: absolute;
+        bottom: 25px; /* Adjusting bottom slightly for outside-of-container feel */
+        left: 30%;
+        transform: translateX(-50%); /* perfectly centered */
+        max-width: 200%;
+        z-index: 40; /* Above base image */
+        filter: drop-shadow(2px 2px 0px #000);
+    }
 
+    /* --- MODULAR PRICE GRID --- */
+    .comm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .tier-box { background: #111; border: 2px solid var(--hot-pink); border-radius: var(--inner-radius); padding: 12px; text-align: center; transition: 0.3s; }
+    .tier-box:hover { box-shadow: 0 0 15px var(--hot-pink); transform: translateY(-5px); }
+    .tier-box img { width: 100%; border: 1px solid #333; border-radius: 8px; margin-bottom: 10px; }
+
+    /* --- ART PROGRESS --- */
+    .workbench { background: #000; border: 2px dashed var(--hot-pink); border-radius: var(--inner-radius); padding: 15px; margin-top: 25px; }
+    .progress-container { background: #222; border: 1px solid var(--hot-pink); height: 28px; border-radius: 50px; margin-top: 10px; overflow: hidden; }
+    .progress-fill { background: linear-gradient(to right, #660066, var(--hot-pink)); height: 100%; }
+
+</style>
+
+<div class="top-art-banner">
+    <img src="/images/kittybar.gif" class="kitty-bar-overlay kitty-bar-top" alt="Animated Kitty Border Top">
+    <img src="/images/Image02.jpg" alt="Art Banner" style="width: 100%;">
+    <img src="/images/kittybar.gif" class="kitty-bar-overlay kitty-bar-bottom" alt="Animated Kitty Border Bottom">
+</div>
+
+<a href="/prices" class="layered-sticker-block">
+    <div class="layered-image-container">
+        <img src="/images/label01.png" class="layered-label" alt="Label Background">
+        <img src="/images/welcome.gif" class="layered-welcome" alt="Welcome">
+        <img src="/images/welcomechabby.jpg" class="layered-base-img" alt="Commission info + examples">
+        
+        <img src="/images/enter.gif" class="layered-enter" alt="Enter">
     </div>
+</a>
 
-    <footer>
-        © 2026 CHABBYTABBY ARTWORKS • DESIGNED BY GALILEOCAT • ALL RIGHTS RESERVED • Don't Steal, TY!
-    </footer>
+<div class="comm-grid">
+    <div class="tier-box">
+        <div style="font-weight: bold; margin-bottom: 8px; color: var(--hot-pink);">COLOR SKETCH</div>
+        <img src="/images/Image03.jpg">
+        <div style="font-weight: bold; color: var(--neon-yellow);">$35.00</div>
+    </div>
+    <div class="tier-box">
+        <div style="font-weight: bold; margin-bottom: 8px; color: var(--hot-pink);">FULL RENDER</div>
+        <img src="/images/Image06.jpg">
+        <div style="font-weight: bold; color: var(--neon-yellow);">$85.00</div>
+    </div>
+</div>
 
-</body>
-</html>
+<div class="workbench">
+    <div style="font-weight: bold; color: var(--hot-pink);">ART PROGRESS:</div>
+    <p style="font-size: 0.8rem; color: #ccc;">Current Project: Illustration for @GalileoCat</p>
+    <div class="progress-container">
+        <div class="progress-fill" style="width: 75%;"></div>
+    </div>
+</div>
+
+
+{{ end }}
