@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Commission Prices &amp; Info || ChabbyTabby</title>
+    <link rel="icon" type="image/png" href="/images/introvertkittensignature.png">
+    <link rel="shortcut icon" href="/images/introvertkittensignature.png">
     <style>
          
         :root {
@@ -411,6 +413,35 @@
                 box-sizing: border-box;
             }
         }
+         
+        .cat-collection {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);  
+            gap: 10px;
+            width: 100%;
+        }
+
+         
+        .right-sidebar .cat-sticker {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;  
+            object-fit: cover;
+            background: white;
+            padding: 4px;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            border-radius: 4px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .right-sidebar .cat-sticker:hover {
+            transform: scale(1.15) rotate(4deg);  
+            box-shadow: 0 0 10px var(--hot-pink);
+            border-color: var(--hot-pink);
+            z-index: 10;
+            position: relative;
+        }
     </style>
 </head>
 <body>
@@ -515,7 +546,28 @@
         </div>
 
         <div class="right-sidebar">
-          
+            <div class="sidebar-section-title">Babies</div>
+            
+            <div class="cat-collection">
+                <img src="/images/cat-icons/cat1.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat2.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat3.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat4.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat5.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat6.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat7.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat8.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat9.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat10.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat11.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat12.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat13.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat14.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat15.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat16.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat17.png" class="cat-sticker" alt="cat">
+                <img src="/images/cat-icons/cat18.png" class="cat-sticker" alt="cat">
+            </div>
         </div>
         
 <div class="music-player-container" style="width: 100%; margin-top: 15px; background: #111; border: 2px solid var(--hot-pink); border-radius: 12px; padding: 12px; text-align: center;">
@@ -738,29 +790,3 @@ function changeVolume(delta) {
 
 window.addEventListener('load', initAudio);
 </script>
-
-</body>
-<div class="cat-gutter gutter-left">
-        <img src="/images/cat-icons/cat1.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat2.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat3.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat4.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat5.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat6.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat7.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat8.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat9.png" class="cat-sticker" alt="cat">
-    </div>
-
-    <div class="cat-gutter gutter-right">
-        <img src="/images/cat-icons/cat10.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat11.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat12.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat13.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat14.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat15.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat16.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat17.png" class="cat-sticker" alt="cat">
-        <img src="/images/cat-icons/cat18.png" class="cat-sticker" alt="cat">
-    </div>
-</html>
