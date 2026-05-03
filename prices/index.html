@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commission Prices &amp; Info || ChabbyTabby</title>
+    <title>Prices || ChabbyTabby</title>
     <link rel="icon" type="image/png" href="/images/introvertkittensignature.png">
     <link rel="shortcut icon" href="/images/introvertkittensignature.png">
     <style>
@@ -522,17 +522,186 @@
             
     <div style="background: #111; border: 2px solid var(--hot-pink); border-radius: var(--inner-radius); padding: 20px;">
         <h1 style="color: var(--neon-yellow); text-transform: uppercase; margin-top: 0; border-bottom: 2px dashed #333; padding-bottom: 10px;">
-            Commission Prices &amp; Info
+            Prices
         </h1>
         <div style="line-height: 1.6; color: #eee; font-size: 0.95rem;">
-            <h3 id="-current-rates">📋 Current Rates</h3>
-<ul>
-<li><strong>Color Sketch:</strong> $35.00</li>
-<li><strong>Full Render:</strong> $85.00</li>
-<li><strong>Custom Character Design:</strong> Inquire for details!</li>
-</ul>
-<h3 id="-terms-of-service">📝 Terms of Service</h3>
-<p>Payment is required upfront via Ko-Fi or PayPal. Turnaround time is currently 1-2 weeks.</p>
+            <style>
+    /* --- PRICES & TOS PAGE STYLES --- */
+    .tos-container {
+        background: #111;
+        border: 2px solid var(--hot-pink);
+        border-radius: var(--inner-radius);
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(255, 0, 255, 0.15);
+    }
+
+    .tos-header {
+        color: var(--neon-yellow);
+        font-size: 1.6rem;
+        font-weight: 900;
+        margin-top: 0;
+        margin-bottom: 20px;
+        border-bottom: 2px dashed var(--hot-pink);
+        padding-bottom: 15px;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 0px #000;
+    }
+
+    .tos-section-title {
+        color: var(--hot-pink);
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        background: #222;
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 4px;
+        border: 1px solid #333;
+    }
+
+    .tos-list {
+        list-style: none;
+        padding-left: 0;
+        color: #e0e0e0;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .tos-list li {
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 24px;
+    }
+
+    .tos-list li::before {
+        content: "▸"; /* Retro arrow */
+        color: var(--neon-yellow);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .hl-yellow { color: var(--neon-yellow); font-weight: bold; }
+    .hl-red { color: #ff3366; font-weight: bold; text-decoration: underline; }
+    .hl-pink { color: var(--hot-pink); font-weight: bold; }
+
+    /* --- WILL / WON'T DRAW GRID --- */
+    .draw-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 10px;
+    }
+
+    .draw-box {
+        background: #000;
+        border: 2px dashed #333;
+        border-radius: 12px;
+        padding: 20px;
+        transition: all 0.2s ease;
+    }
+
+    .draw-box.will { border-color: #00ffcc; box-shadow: inset 0 0 15px rgba(0, 255, 204, 0.1); }
+    .draw-box.wont { border-color: #ff3366; box-shadow: inset 0 0 15px rgba(255, 51, 102, 0.1); }
+
+    .draw-box:hover { transform: translateY(-3px); }
+
+    .draw-title {
+        font-size: 1.2rem;
+        font-weight: 900;
+        margin-top: 0;
+        margin-bottom: 15px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .will .draw-title { color: #00ffcc; text-shadow: 2px 2px 0px #000; }
+    .wont .draw-title { color: #ff3366; text-shadow: 2px 2px 0px #000; }
+
+    .draw-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: #ccc;
+        font-size: 0.95rem;
+        text-align: center;
+        line-height: 1.8;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+        .draw-grid { grid-template-columns: 1fr; }
+    }
+</style>
+<div class="tos-container">
+    <h1 class="tos-header">📋 TERMS OF SERVICE</h1>
+    <p style="color: #aaa; font-size: 0.85rem; font-style: italic; margin-top: -10px; margin-bottom: 20px;">Please read this thoroughly before commissioning!</p>
+    <div class="tos-section-title">Before Ordering</div>
+    <ul class="tos-list">
+        <li><span class="hl-pink">Know what you want!</span> I don't mind giving my opinion, but please have an idea ahead of time (unless you are giving me full artistic liberty).</li>
+        <li><span class="hl-pink">Save your future ideas!</span> I appreciate your enthusiasm, but too much info about future commissions might make me forget important details for your current one! ;v;</li>
+        <li>I will usually make multiple sketches before proceeding with coloring and will ask if you'd like alterations.</li>
+        <li>Have a <span class="hl-yellow">CLEAR updated reference</span> prepared. If you don't have one, please provide a listed description, moodboard, or collage! Doodles and sketches help me immensely!</li>
+    </ul>
+    <div class="tos-section-title">Rules & Rights</div>
+    <ul class="tos-list">
+        <li>Do <span class="hl-red">NOT</span> resell or redistribute the image to third-parties.</li>
+        <li>Do <span class="hl-red">NOT</span> edit or alter my artwork without permission (filters are OK).</li>
+        <li><span class="hl-red">DO NOT TRACE MY ARTWORK.</span> It is strictly for your PERSONAL USE!</li>
+        <li>I reserve the rights over the final artwork (including posting it online to my social media).</li>
+        <li><span class="hl-red">DO NOT RUN MY ART THROUGH AI</span> or you will be permanently blacklisted.</li>
+        <li>Please do not try to bargain. My prices are set and I will not be lowering them.</li>
+        <li><em>Psst... Please send me a pumpkin emoji 🎃 for a discount! (This proves you read my ToS ^_^)</em></li>
+    </ul>
+    <div class="tos-section-title">Edits & Credit</div>
+    <ul class="tos-list">
+        <li>Any changes during the sketch phase are OK! However, multiple changes <span class="hl-pink">after flat colors</span> will lead to an additional fee (+ $10).</li>
+        <li>If you prefer I do not post the art to my socials, there is an privacy fee of $5.</li>
+        <li>Please <span class="hl-yellow">CREDIT ME</span> or ask if you are going to repost the art somewhere else.</li>
+    </ul>
+    <div class="tos-section-title">Payment & Refunds</div>
+    <ul class="tos-list">
+        <li><span class="hl-yellow">PayPal or Ko-fi Only.</span></li>
+        <li><span class="hl-pink">Upfront payment required!</span> I do not begin until payment is received.</li>
+        <li>If you would like a refund before I begin or within the sketching phase, I will give a full refund.</li>
+        <li>I do <span class="hl-red">not</span> offer full refunds for finished works. (If there are long wait times, I will make an exception and issue a partial refund).</li>
+        <li>There may be times I fully refund you if I am unable to work on your commission (usually due to mental health reasons, as I would hate to keep you waiting).</li>
+    </ul>
+    <div class="tos-section-title">Estimated Time</div>
+    <ul class="tos-list">
+        <li>Depending on the commission type, it should take <span class="hl-yellow">3 days to 1 month</span> to complete after I have started the sketch.</li>
+        <li>I will give you an estimated timeframe on when it should be completed!</li>
+        <li>Large commissions may take longer (Ref sheets, backgrounds, multiple characters).</li>
+        <li>I will try my absolute best to keep you updated via Trello. Feel free to DM me if you'd like to see progress!</li>
+    </ul>
+    <p style="text-align: center; color: var(--hot-pink); font-weight: bold; margin-top: 25px;">Any other concerns, please contact me! Thank you!</p>
+</div>
+<div class="draw-grid">
+    <div class="draw-box will">
+        <h2 class="draw-title">✔️ WILL DRAW</h2>
+        <ul class="draw-list">
+            <li>Furry / Anthro</li>
+            <li>Humans / Nekomimi</li>
+            <li>Feral (STRICTLY SFW)</li>
+            <li>Mecha (Partial)</li>
+            <li>NSFW Pinups <span style="color: #fff; font-size: 0.8rem;">(Please Ask!)</span></li>
+        </ul>
+    </div>
+    <div class="draw-box wont">
+        <h2 class="draw-title">❌ WILL NOT DRAW</h2>
+        <ul class="draw-list">
+            <li>Fetish Content</li>
+            <li>Vent Art</li>
+            <li>Incest</li>
+            <li>Loli / Shota / Babyfur</li>
+            <li><span style="color: #fff; font-size: 0.8rem; font-style: italic; display: block; margin-top: 10px;">Please ask before commissioning if not listed here. I will typically make my views clear if it makes me uncomfortable.</span></li>
+        </ul>
+    </div>
+</div>
 
         </div>
     </div>
@@ -573,37 +742,22 @@
 <div class="music-player-container" style="width: 100%; margin-top: 15px; background: #111; border: 2px solid var(--hot-pink); border-radius: 12px; padding: 12px; text-align: center;">
     <div class="sidebar-section-title" style="margin-top: 0;">♪ CHABBY BGM ♪</div>
     
-    <audio id="chabbyAudio" loop style="width: 100%; margin: 10px 0;">
+    <audio id="chabbyAudio" loop>
+        <source id="audioSource" src="/music/Cheerleader.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-    
-    <div style="margin: 10px 0; text-align: left; max-height: 180px; overflow-y: auto; padding: 8px; background: #1a1a1a; border-radius: 8px;">
-        <select id="songSelect" style="width: 100%; padding: 8px; background: #000; color: var(--hot-pink); border: 2px solid var(--hot-pink); border-radius: 6px; font-size: 0.9rem;">
+    <div style="margin: 10px 0; text-align: left; padding: 8px; background: #1a1a1a; border-radius: 8px;">
+        <select id="songSelect" onchange="changeSongDropdown()" style="width: 100%; padding: 8px; background: #000; color: var(--hot-pink); border: 2px solid var(--hot-pink); border-radius: 6px; font-size: 0.9rem;">
             <option value="/music/Cheerleader.mp3">01. Cheerleader</option>
-            <option value="/music/song2.mp3">02. Song Title 2</option>
-            <option value="/music/song3.mp3">03. Song Title 3</option>
-            <option value="/music/song4.mp3">04. Song Title 4</option>
-            <option value="/music/song5.mp3">05. Song Title 5</option>
-            <option value="/music/song6.mp3">06. Song Title 6</option>
-            <option value="/music/song7.mp3">07. Song Title 7</option>
-            <option value="/music/song8.mp3">08. Song Title 8</option>
-            <option value="/music/song9.mp3">09. Song Title 9</option>
-            <option value="/music/song10.mp3">10. Song Title 10</option>
-        </select>
+            <option value="/music/01.Parallel Sign.mp3">02. Parallel Sign</option>
+            </select>
     </div>
 
     <div style="display: flex; gap: 8px; justify-content: center; align-items: center; margin: 8px 0;">
-        <button onclick="togglePlay()" id="playBtn"
-                style="background:#000; color:var(--hot-pink); border:2px solid var(--hot-pink); padding:8px 18px; border-radius:8px; font-weight:bold; cursor:pointer; flex: 1;">
-            ▶ PLAY
-        </button>
-        
+        <button onclick="togglePlay()" id="playBtn" style="background:#000; color:var(--hot-pink); border:2px solid var(--hot-pink); padding:8px 18px; border-radius:8px; font-weight:bold; cursor:pointer; flex: 1;">▶ PLAY</button>
         <button onclick="prevSong()" style="background:#000; color:var(--hot-pink); border:2px solid var(--hot-pink); padding:8px 14px; border-radius:8px; font-weight:bold; cursor:pointer;">◀</button>
         <button onclick="nextSong()" style="background:#000; color:var(--hot-pink); border:2px solid var(--hot-pink); padding:8px 14px; border-radius:8px; font-weight:bold; cursor:pointer;">▶</button>
-        
-        <button onclick="changeVolume(-0.1)" style="background:#000; color:var(--hot-pink); border:2px solid var(--hot-pink); padding:8px 14px; border-radius:8px; font-weight:bold; cursor:pointer;">-</button>
-        <button onclick="changeVolume(0.1)" style="background:#000; color:var(--hot-pink); border:2px solid var(--hot-pink); padding:8px 14px; border-radius:8px; font-weight:bold; cursor:pointer;">+</button>
     </div>
     <small style="color:#ff99cc; font-size:0.75rem;">【=◈︿◈=】 Now Playing: <span id="nowPlaying">Cheerleader</span></small>
 </div>
@@ -618,16 +772,19 @@
         let activeDragObj = null;
         let startX, startY, initialLeft, initialTop;
         let hasMoved = false;
+        let topZIndex = 9999; 
 
         document.addEventListener('mousedown', (e) => {
-            
             hasMoved = false; 
 
-            
             const dragHandle = e.target.closest('.draggable-obj');
             if (!dragHandle) return;
 
             activeDragObj = dragHandle;
+            
+            
+            topZIndex++; 
+            activeDragObj.style.zIndex = topZIndex;
             
             startX = e.clientX;
             startY = e.clientY;
@@ -648,7 +805,6 @@
 
             activeDragObj.style.left = `${initialLeft + (e.clientX - startX)}px`;
             activeDragObj.style.top = `${initialTop + (e.clientY - startY)}px`;
-            
             activeDragObj.style.bottom = 'auto';
             activeDragObj.style.right = 'auto';
         });
@@ -684,49 +840,52 @@
         
         document.addEventListener('click', function(e) {
             
-            const numSparkles = 15; 
             
-            for (let i = 0; i < numSparkles; i++) {
-                const particle = document.createElement('div');
-                
-                particle.style.position = 'fixed';
-                particle.style.left = e.clientX + 'px';
-                particle.style.top = e.clientY + 'px';
-                particle.style.width = '8px';
-                particle.style.height = '8px';
-                particle.style.backgroundColor = '#ccff00';
-                particle.style.borderRadius = '50%';
-                particle.style.boxShadow = '0 0 10px #ccff00, 0 0 20px #ff00ff';
-                particle.style.pointerEvents = 'none';
-                particle.style.zIndex = '9999999';
-                
-                document.body.appendChild(particle);
-
-                const angle = Math.random() * Math.PI * 2; 
-                const velocity = Math.random() * 80 + 30; 
-                
-                const tx = Math.cos(angle) * velocity;
-                const ty = Math.sin(angle) * velocity;
-
-                const animation = particle.animate([
-                    { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
-                    { transform: `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0)`, opacity: 0 }
-                ], {
-                    duration: 600, 
-                    easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)' 
-                });
-
-                animation.onfinish = () => particle.remove();
+            if (e.target.closest('.music-player-container') || e.target.closest('button')) {
+                return; 
             }
 
             
+            const paw = document.createElement('div');
+            paw.innerHTML = '🐾'; 
+            
+            const isPink = Math.random() > 0.5;
+            const color = isPink ? '#f506a5' : '#ccff00';
+            const glow = isPink ? '#ffb3e6' : '#ffffff';
+
+            paw.style.position = 'fixed';
+            paw.style.left = (e.clientX - 15) + 'px'; 
+            paw.style.top = (e.clientY - 15) + 'px';
+            paw.style.fontSize = '30px';
+            paw.style.color = color;
+            paw.style.textShadow = `0 0 10px ${color}, 0 0 20px ${glow}`; 
+            paw.style.pointerEvents = 'none';
+            paw.style.zIndex = '9999999';
+            paw.style.userSelect = 'none';
+
+            document.body.appendChild(paw);
+
+            const randomRotation = (Math.random() * 40) - 20; 
+
+            
+            const animation = paw.animate([
+                { transform: `scale(0.5) rotate(${randomRotation}deg)`, opacity: 1 },
+                { transform: `scale(1.2) rotate(${randomRotation}deg) translateY(-25px)`, opacity: 0 }
+            ], {
+                duration: 800, 
+                easing: 'ease-out' 
+            });
+
+            animation.onfinish = () => paw.remove();
+
+            
+            const clickable = e.target.closest('a');
             
             if (hasMoved) {
                 e.preventDefault();
                 return;
             }
 
-            
             if (clickable && clickable.hasAttribute('href')) {
                 const target = clickable.getAttribute('target');
                 const href = clickable.getAttribute('href');
@@ -734,10 +893,9 @@
                 if (target !== '_blank' && !href.startsWith('#')) {
                     e.preventDefault(); 
                     
-                    
                     setTimeout(() => {
                         window.location.href = href;
-                    }, 400);
+                    }, 5); 
                 }
             }
         });
