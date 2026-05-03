@@ -149,16 +149,15 @@
             position: absolute; 
             bottom: 20px;       
             left: -200px; 
-            z-index: 800; 
+            z-index: 9999;  
             width: 220px;       
             filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.6));
         }
-        .draggable-jar img { width: 100%; height: auto; pointer-events: none; animation: sway 4s ease-in-out infinite; }
 
          
         .bg-cat {
             position: fixed; 
-            z-index: 1; 
+            z-index: 9999;  
             filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.8));
         }
 
@@ -340,21 +339,94 @@
 @media (max-width: 1450px) {
     .cat-gutter { display: none; }
 }
+ 
+        @media (max-width: 768px) {
+             
+            .bg-cat, .draggable-jar, .cat-gutter { 
+                display: none !important; 
+            }
+
+             
+            .retro-window { 
+                margin: 0; 
+                border: none; 
+                border-radius: 0; 
+            }
+
+             
+            .top-bar { 
+                flex-direction: column; 
+                gap: 10px; 
+                text-align: center; 
+            }
+
+             
+            .nav-bar { 
+                flex-wrap: wrap; 
+                padding: 10px; 
+            }
+            .nav-btn { 
+                flex: 1 1 calc(50% - 20px); 
+                text-align: center; 
+                font-size: 0.75rem;  
+            }
+
+             
+            .master-container { 
+                grid-template-columns: 1fr; 
+                margin: 0; 
+                border-left: none; 
+                border-right: none; 
+                border-radius: 0; 
+            }
+
+             
+            .layered-image-container {
+                overflow: hidden;  
+                border-radius: 12px;
+            }
+            
+            .layered-base-img {
+                width: 100%;
+                max-width: 100vw;
+            }
+
+            .welcome-sticker-wrapper {
+                left: 10px;
+                top: -10px;
+                transform: scale(0.7);  
+                transform-origin: top left;
+            }
+            
+            .layered-enter {
+                left: 50%;
+                bottom: 10px;
+                transform: translateX(-50%) scale(0.8);
+            }
+
+             
+            .music-player-container {
+                width: calc(100% - 30px);  
+                margin-left: auto;
+                margin-right: auto;
+                box-sizing: border-box;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <img src="/images/kitty04.gif" class="bg-cat draggable-obj" style="top: 20vh; left: 12vw; width: 140px;" alt="cat">
-    <img src="/images/kitty05.gif" class="bg-cat draggable-obj" style="top: 40vh; left: 8vw; width: 120px;" alt="cat">
-    <img src="/images/kitty06.gif" class="bg-cat draggable-obj" style="top: 60vh; left: 14vw; width: 150px;" alt="cat">
-    <img src="/images/kitty07.gif" class="bg-cat draggable-obj" style="bottom: 15vh; left: 15vw; width: 110px;" alt="cat">
-     <img src="/images/kitty09.gif" class="bg-cat draggable-obj" style="bottom: 5vh; left: 15vw; width: 200px;" alt="cat">
+    <img src="/images/kitty04.gif" class="bg-cat draggable-obj" style="top: 20vh; left: 3vw; width: 140px;" alt="cat">
+    <img src="/images/kitty05.gif" class="bg-cat draggable-obj" style="top: 40vh; left: 3vw; width: 120px;" alt="cat">
+    <img src="/images/kitty06.gif" class="bg-cat draggable-obj" style="top: 60vh; left: 3vw; width: 150px;" alt="cat">
+    <img src="/images/kitty07.gif" class="bg-cat draggable-obj" style="bottom: 15vh; left: 3vw; width: 110px;" alt="cat">
+     <img src="/images/kitty09.gif" class="bg-cat draggable-obj" style="bottom: 5vh; left: 3vw; width: 200px;" alt="cat">
 
-    <img src="/images/shrimp.png" class="bg-cat draggable-obj" style="top: 15vh; right: 9vw; width: 170px;" alt="cat">
-    <img src="/images/kitty01.gif" class="bg-cat draggable-obj" style="top: 25vh; right: 9vw; width: 170px;" alt="cat">
-     <img src="/images/meowblinkie.gif" class="bg-cat draggable-obj" style="top: 60vh; right: 9vw; width: 170px;" alt="cat">
-    <img src="/images/kitty02.gif" class="bg-cat draggable-obj" style="top: 35vh; right: 9vw; width: 170px;" alt="cat">
-    <img src="/images/kitty03.gif" class="bg-cat draggable-obj" style="bottom: 45vh; right: 9vw; width: 270px;" alt="cat">
+    <img src="/images/shrimp.png" class="bg-cat draggable-obj" style="top: 10vh; right: 3vw; width: 170px;" alt="cat">
+    <img src="/images/kitty01.gif" class="bg-cat draggable-obj" style="top: 25vh; right: 2vw; width: 170px;" alt="cat">
+     <img src="/images/meowblinkie.gif" class="bg-cat draggable-obj" style="top: 60vh; right: 2vw; width: 170px;" alt="cat">
+    <img src="/images/kitty02.gif" class="bg-cat draggable-obj" style="top: 35vh; right: 2vw; width: 170px;" alt="cat">
+    <img src="/images/kitty03.gif" class="bg-cat draggable-obj" style="bottom: 45vh; right: 2vw; width: 170px;" alt="cat">
 
         
     <div class="retro-window" id="mainWindow">
@@ -495,22 +567,27 @@
         z-index: 20;  
         filter: drop-shadow(3px 3px 0px #000);  
     }
-     
+    
     .layered-label {
         position: absolute;
-        top: -7%;
-        left: -7%;
+        top: -12%;
+        left: -8%;
         width: 50%;
         max-width: 320px;
         z-index: 15;            
-        border-radius: 1px;
+        
+         
+        border-radius: 18px; 
+        
         box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6),
                     inset 0 0 8px rgba(255,255,255,0.3);
-        border: 1x solid #333;
+        
+         
+        border: 1px solid #333; 
+        
         background: #000000;
         padding: 4px;
         transform: rotate(-8deg);    
-     
     }
     .layered-enter {
         position: absolute;
@@ -628,7 +705,7 @@
     </div>
 
     <footer>© 2026 CHABBYTABBY ART • DESIGNED BY GALILEOCAT • Don't STEAL, TY! </footer>
-</div>div
+</div>
     <script>
         
         
