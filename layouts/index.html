@@ -76,22 +76,27 @@
         z-index: 20; /* Above base image */
         filter: drop-shadow(3px 3px 0px #000); /* Sticker drop-shadow */
     }
-    /* NEW: Label01 Background Layer */
+   /* NEW: Label01 Background Layer */
     .layered-label {
         position: absolute;
-        top: -7%;
-        left: -7%;
+        top: -12%;
+        left: -8%;
         width: 50%;
         max-width: 320px;
         z-index: 15;           /* Behind welcome.gif */
-        border-radius: 1px;
+        
+        /* THE FIX: Increased for rounded corners */
+        border-radius: 18px; 
+        
         box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6),
                     inset 0 0 8px rgba(255,255,255,0.3);
-        border: 1x solid #333;
+        
+        /* Fixed '1x' to '1px' */
+        border: 1px solid #333; 
+        
         background: #000000;
         padding: 4px;
         transform: rotate(-8deg);   /* Negative = counter-clockwise tilt */
-    /* Enter Sticker (targeted) */
     }
     .layered-enter {
         position: absolute;

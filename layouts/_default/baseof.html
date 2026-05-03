@@ -160,16 +160,15 @@
             position: absolute; 
             bottom: 20px;       
             left: -200px; 
-            z-index: 800; 
+            z-index: 9999; /* MOVED TO THE VERY FRONT */
             width: 220px;       
             filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.6));
         }
-        .draggable-jar img { width: 100%; height: auto; pointer-events: none; animation: sway 4s ease-in-out infinite; }
 
         /* specific background cat styling */
         .bg-cat {
             position: fixed; 
-            z-index: 1; 
+            z-index: 9999; /* MOVED TO THE VERY FRONT */
             filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.8));
         }
 
@@ -353,21 +352,96 @@
 @media (max-width: 1450px) {
     .cat-gutter { display: none; }
 }
+/* ============================================================
+           8. MOBILE-FRIENDLY & ANTI-CLUTTER RULES
+           ============================================================ */
+        @media (max-width: 768px) {
+            /* 1. HIDE THE CLUTTER: Draggable cats and floating items ruin touch scrolling */
+            .bg-cat, .draggable-jar, .cat-gutter { 
+                display: none !important; 
+            }
+
+            /* 2. MAXIMIZE SPACE: Remove the outer Retro Window borders to go edge-to-edge */
+            .retro-window { 
+                margin: 0; 
+                border: none; 
+                border-radius: 0; 
+            }
+
+            /* 3. STACK THE HEADER: Prevents the logo and status from squishing together */
+            .top-bar { 
+                flex-direction: column; 
+                gap: 10px; 
+                text-align: center; 
+            }
+
+            /* 4. GRID THE NAVIGATION: Turns the 3 buttons into a neat wrap-around grid */
+            .nav-bar { 
+                flex-wrap: wrap; 
+                padding: 10px; 
+            }
+            .nav-btn { 
+                flex: 1 1 calc(50% - 20px); 
+                text-align: center; 
+                font-size: 0.75rem; /* Slightly smaller text for mobile */
+            }
+
+            /* 5. EDGE-TO-EDGE MASTER CONTAINER */
+            .master-container { 
+                grid-template-columns: 1fr; 
+                margin: 0; 
+                border-left: none; 
+                border-right: none; 
+                border-radius: 0; 
+            }
+
+            /* 6. CONTAIN THE STICKERS: Keeps the layered homepage images from causing horizontal scrolling */
+            .layered-image-container {
+                overflow: hidden; /* Clips anything that bleeds off the edge */
+                border-radius: 12px;
+            }
+            
+            .layered-base-img {
+                width: 100%;
+                max-width: 100vw;
+            }
+
+            .welcome-sticker-wrapper {
+                left: 10px;
+                top: -10px;
+                transform: scale(0.7); /* Shrink the welcome sticker so it fits */
+                transform-origin: top left;
+            }
+            
+            .layered-enter {
+                left: 50%;
+                bottom: 10px;
+                transform: translateX(-50%) scale(0.8);
+            }
+
+            /* 7. MUSIC PLAYER FIX */
+            .music-player-container {
+                width: calc(100% - 30px); /* Accommodates sidebar padding */
+                margin-left: auto;
+                margin-right: auto;
+                box-sizing: border-box;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <img src="/images/kitty04.gif" class="bg-cat draggable-obj" style="top: 20vh; left: 12vw; width: 140px;" alt="cat">
-    <img src="/images/kitty05.gif" class="bg-cat draggable-obj" style="top: 40vh; left: 8vw; width: 120px;" alt="cat">
-    <img src="/images/kitty06.gif" class="bg-cat draggable-obj" style="top: 60vh; left: 14vw; width: 150px;" alt="cat">
-    <img src="/images/kitty07.gif" class="bg-cat draggable-obj" style="bottom: 15vh; left: 15vw; width: 110px;" alt="cat">
-     <img src="/images/kitty09.gif" class="bg-cat draggable-obj" style="bottom: 5vh; left: 15vw; width: 200px;" alt="cat">
+    <img src="/images/kitty04.gif" class="bg-cat draggable-obj" style="top: 20vh; left: 3vw; width: 140px;" alt="cat">
+    <img src="/images/kitty05.gif" class="bg-cat draggable-obj" style="top: 40vh; left: 3vw; width: 120px;" alt="cat">
+    <img src="/images/kitty06.gif" class="bg-cat draggable-obj" style="top: 60vh; left: 3vw; width: 150px;" alt="cat">
+    <img src="/images/kitty07.gif" class="bg-cat draggable-obj" style="bottom: 15vh; left: 3vw; width: 110px;" alt="cat">
+     <img src="/images/kitty09.gif" class="bg-cat draggable-obj" style="bottom: 5vh; left: 3vw; width: 200px;" alt="cat">
 
-    <img src="/images/shrimp.png" class="bg-cat draggable-obj" style="top: 15vh; right: 9vw; width: 170px;" alt="cat">
-    <img src="/images/kitty01.gif" class="bg-cat draggable-obj" style="top: 25vh; right: 9vw; width: 170px;" alt="cat">
-     <img src="/images/meowblinkie.gif" class="bg-cat draggable-obj" style="top: 60vh; right: 9vw; width: 170px;" alt="cat">
-    <img src="/images/kitty02.gif" class="bg-cat draggable-obj" style="top: 35vh; right: 9vw; width: 170px;" alt="cat">
-    <img src="/images/kitty03.gif" class="bg-cat draggable-obj" style="bottom: 45vh; right: 9vw; width: 270px;" alt="cat">
+    <img src="/images/shrimp.png" class="bg-cat draggable-obj" style="top: 10vh; right: 3vw; width: 170px;" alt="cat">
+    <img src="/images/kitty01.gif" class="bg-cat draggable-obj" style="top: 25vh; right: 2vw; width: 170px;" alt="cat">
+     <img src="/images/meowblinkie.gif" class="bg-cat draggable-obj" style="top: 60vh; right: 2vw; width: 170px;" alt="cat">
+    <img src="/images/kitty02.gif" class="bg-cat draggable-obj" style="top: 35vh; right: 2vw; width: 170px;" alt="cat">
+    <img src="/images/kitty03.gif" class="bg-cat draggable-obj" style="bottom: 45vh; right: 2vw; width: 170px;" alt="cat">
 
         <!-- RETRO WINDOW START -->
     <div class="retro-window" id="mainWindow">
@@ -440,9 +514,7 @@
         </div>
 
         <div class="right-sidebar">
-            <img src="/images/image04.jpg" alt="Cat">
-            <img src="/images/image07.jpg" alt="Cat">
-            <img src="/images/image08.jpg" alt="Cat">
+          <!-- Add images here. -->
         </div>
         <!-- ====================== MUSIC PLAYER ====================== -->
 <div class="music-player-container" style="width: 100%; margin-top: 15px; background: #111; border: 2px solid var(--hot-pink); border-radius: 12px; padding: 12px; text-align: center;">
@@ -485,7 +557,7 @@
     </div>
 
     <footer>© 2026 CHABBYTABBY ART • DESIGNED BY GALILEOCAT • Don't STEAL, TY! </footer>
-</div>div
+</div>
     <script>
         // ==========================================
         // 1. UNIVERSAL DRAGGABLE LOGIC
@@ -668,26 +740,26 @@ window.addEventListener('load', initAudio);
 
 </body>
 <div class="cat-gutter gutter-left">
-    <img src="/images/Cats/cat1.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat2.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat3.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat4.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat5.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat6.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat7.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat8.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat9.png" class="cat-sticker" alt="cat">
-</div>
+        <img src="/images/cat-icons/cat1.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat2.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat3.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat4.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat5.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat6.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat7.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat8.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat9.png" class="cat-sticker" alt="cat">
+    </div>
 
-<div class="cat-gutter gutter-right">
-    <img src="/images/Cats/cat10.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat11.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat12.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat13.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat14.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat15.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat16.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat17.png" class="cat-sticker" alt="cat">
-    <img src="/images/Cats/cat18.png" class="cat-sticker" alt="cat">
-</div>
+    <div class="cat-gutter gutter-right">
+        <img src="/images/cat-icons/cat10.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat11.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat12.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat13.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat14.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat15.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat16.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat17.png" class="cat-sticker" alt="cat">
+        <img src="/images/cat-icons/cat18.png" class="cat-sticker" alt="cat">
+    </div>
 </html>
