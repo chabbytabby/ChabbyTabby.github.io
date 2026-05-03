@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chabby Tabby Radio</title>
+    <style>
+        body { 
+            background: #000; 
+            color: #f506a5; 
+            font-family: 'Courier New', Courier, monospace; 
+            text-align: center; 
+            padding: 10px; 
+            border: 2px solid #f506a5; 
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 180px; /* Adjusted for the GIF */
+        }
+        .title { 
+            font-size: 11px; 
+            margin-bottom: 8px; 
+            font-weight: bold; 
+            border-bottom: 1px dashed #f506a5; 
+            width: 100%;
+            letter-spacing: 1px;
+        }
+        .kitty-container img {
+            width: 50px; /* Cute mini size */
+            image-rendering: pixelated; /* Keeps that crisp retro look */
+            margin-bottom: 5px;
+        }
+        select { 
+            background: #000; 
+            color: #ccff00; 
+            border: 1px solid #ccff00; 
+            cursor: pointer; 
+            font-size: 10px;
+            width: 100%;
+            padding: 2px;
+        }
+        /* Style the native audio player to match the vibe */
+        audio {
+            width: 100%;
+            height: 30px;
+            filter: invert(100%) hue-rotate(270deg) brightness(1.5);
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">♪ CHABBY BGM POP-OUT ♪</div>
+    
+    <div class="kitty-container">
+        <img src="/images/kitty05.gif" alt="Vibing Cat">
+        <img src="/images/kitty04.gif" alt="Vibing Cat">
+        <img src="/images/cat-icons/cat17.png" alt="Vibing Cat">
+    </div>
+
+    <select id="popSelect" onchange="changeSong()"></select>
+    
+    <audio id="popAudio" loop controls></audio>
+
+    <script>
+        const songs = [
+            {src: "/music/Cheerleader.mp3", name: "01. Cheerleader"},
+            {src: "/music/blvckceiling.mp3", name: "02. Blvck Ceiling"},
+            {src: "/music/castleinthesky.mp3", name: "03. Castle in the Sky"},
+            {src: "/music/eurodancer.mp3", name: "04. Eurodancer"},
+            {src: "/music/home.mp3", name: "05. Home"},
+            {src: "/music/meow.mp3", name: "06. Meow"},
+            {src: "/music/ohohohsexyvampire.mp3", name: "07. Sexy Vampire"}
+        ];
+
+        const select = document.getElementById('popSelect');
+        const audio = document.getElementById('popAudio');
+
+        songs.forEach(s => {
+            let opt = document.createElement('option');
+            opt.value = s.src;
+            opt.innerHTML = s.name;
+            select.appendChild(opt);
+        });
+
+        function changeSong() {
+            audio.src = select.value;
+            audio.play();
+        }
+        // Initialize with first song
+        audio.src = songs[0].src;
+    </script>
+</body>
+</html>

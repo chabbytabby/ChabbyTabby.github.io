@@ -737,6 +737,9 @@
         <button onclick="togglePlay()" id="playBtn" style="background:#000; color:var(--hot-pink); border:2px solid var(--hot-pink); padding:8px 18px; border-radius:8px; font-weight:bold; cursor:pointer; flex: 1;">▶ PLAY</button>
         <button onclick="prevSong()" style="background:#000; color:var(--hot-pink); border:2px solid var(--hot-pink); padding:8px 14px; border-radius:8px; font-weight:bold; cursor:pointer;">◀</button>
         <button onclick="nextSong()" style="background:#000; color:var(--hot-pink); border:2px solid var(--hot-pink); padding:8px 14px; border-radius:8px; font-weight:bold; cursor:pointer;">▶</button>
+        <button onclick="popOutPlayer()" style="background:#000; color:#ccff00; border:2px solid #ccff00; padding:4px 10px; border-radius:8px; font-size: 0.7rem; font-weight:bold; cursor:pointer; margin-top: 10px; width: 100%;">
+    ❐ POP-OUT PLAYER (STAY PLAYING)
+</button>
     </div>
     <small style="color:#ff99cc; font-size:0.75rem;"> Now Playing: <span id="nowPlaying"> </span></small>
 </div>
@@ -953,6 +956,16 @@ function prevSong() {
 function changeVolume(delta) {
     if (!audio) return;
     audio.volume = Math.max(0, Math.min(1, audio.volume + delta));
+}
+function popOutPlayer() {
+    
+    if (audio) {
+        audio.pause();
+        document.getElementById('playBtn').textContent = '▶ PLAY';
+    }
+    
+    
+    window.open('/player.html', 'ChabbyPlayer', 'width=300,height=200,menubar=no,toolbar=no,location=no,status=no');
 }
 
 window.addEventListener('load', initAudio);
