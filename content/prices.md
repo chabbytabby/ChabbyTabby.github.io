@@ -156,7 +156,7 @@ url: "/prices"
 <div class="portfolio-wrapper">
     <div class="intro-banner">
         <h2>Hi there ! I see you are interested in my commissions ヾ(•ω•`)o</h2>
-        <p>I do ask of you to read over my <a href="/prices" style="color: var(--hot-pink);">ToS</a> before commissioning me.</p>
+        <p>I do ask of you to read over my <a href="/tos" style="color: var(--hot-pink);">ToS</a> before commissioning me.</p>
         <p style="font-size: 0.9rem; color: #aaa;">If you want something else that isn't listed here, please give me a DM! I will be more than happy to give you a quote and see if I am capable of doing it.</p>
     </div>
     <h1 class="section-header">⭐ MAIN COMMISSIONS ⭐</h1>
