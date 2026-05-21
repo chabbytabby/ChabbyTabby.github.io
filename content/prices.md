@@ -162,7 +162,7 @@ url: "/prices"
     <h1 class="section-header">⭐ MAIN COMMISSIONS ⭐</h1>
     <div class="tier-grid">
         <div class="tier-card">
-            <img src="/images/Image01.jpg" alt="Icon Example">
+            <img src="/images/iconexample.png" alt="Icon Example">
             <h3 class="tier-title">Icon</h3>
             <div class="tier-price">$30</div>
             <div class="tier-desc">A head shot of your character</div>
@@ -173,7 +173,7 @@ url: "/prices"
             </div>
         </div>
         <div class="tier-card">
-            <img src="/images/Image04.jpg" alt="Half Body Example">
+            <img src="/images/nininnn.png" alt="Half Body Example">
             <h3 class="tier-title">Half-Body / Nomnoms</h3>
             <div class="tier-price">$70</div>
             <div class="tier-desc">Thigh / Bust Shot</div>
@@ -184,7 +184,7 @@ url: "/prices"
             </div>
         </div>
         <div class="tier-card">
-            <img src="/images/Image07.jpg" alt="Full Body Example">
+            <img src="/images/fullillustrationexample.png" alt="Full Body Example">
             <h3 class="tier-title">Full-Body Illustration</h3>
             <div class="tier-price">$150 <span style="font-size: 0.8rem; color: #fff;">(or $90 Just Fullbody)</span></div>
             <div class="tier-desc">Includes full background with one character</div>

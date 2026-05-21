@@ -3,16 +3,15 @@
     /* Specific styles just for the homepage layout */
     
     /* --- TOP ART BANNER WITH KITTY OVERLAYS --- */
-    
     .top-art-banner {
-        border: 4px solid var(--hot-pink);
-        border-radius: var(--inner-radius);
+        border: 4px solid var(--hot-pink, #ff007f); /* Added hex fallbacks just in case! */
+        border-radius: var(--inner-radius, 12px);
         overflow: hidden;
         margin-bottom: 25px;
         background: #000;
-        position: relative; /* Essential for absolute positioning of the bars */
-        padding-top: 15px; /* Gives space for the top kittybar */
-        padding-bottom: 15px; /* Gives space for the bottom kittybar */
+        position: relative;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
 
     .kitty-bar-overlay {
@@ -21,13 +20,13 @@
         width: 100%;
         height: auto;
         display: block;
-        z-index: 10; /* Ensures it sits on top of the art */
+        z-index: 10;
     }
     
     .kitty-bar-top { top: -2px; }
     .kitty-bar-bottom { bottom: -2px; }
 
-    /* --- THE LAYERED STICKER BLOCK (Container update) --- */
+    /* --- THE LAYERED STICKER BLOCK --- */
     .layered-sticker-block {
         display: block;
         text-decoration: none;
@@ -37,94 +36,97 @@
         background: transparent;
         padding: 0;
         box-shadow: none;
-        
-        /* Transition still allowed for hover effect on images */
-        transition: all 0.2s ease;
     }
     
-    /* Visual changes on hover apply to the images, not the container */
-    .layered-sticker-block:hover img {
-        filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    /* NEW: Enhanced 3D Hover Effect for Stickers */
+    .layered-sticker-block:hover .layered-base-img {
+        filter: brightness(1.1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    }
+    .layered-sticker-block:hover .layered-welcome {
+        transform: rotate(-5deg) scale(1.05); /* Tilts up and grows */
+        filter: drop-shadow(5px 5px 0px #000); /* Shadow drops further away */
+    }
+    .layered-sticker-block:hover .layered-enter {
+        transform: translateX(-50%) translateY(-5px) scale(1.05); /* Bumps up */
     }
 
-    /* THE STACKING CONTAINER (Targeted updates) */
     .layered-image-container {
         position: relative;
         width: 100%;
         text-align: center;
-        /* Padding removed to ensure full-bleed to container edges */
         padding-top: 0; 
         padding-bottom: 0;
     }
 
-    /* Base Image (Chabby) targeted styling */
     .layered-base-img {
         width: 100%;
         max-width: 600px;
         border-radius: 8px;
-        border: 2px solid #333; /* Keeps a small subtle border on the *art*, not the container */
+        border: 2px solid #333;
         display: inline-block;
+        transition: all 0.3s ease;
     }
 
-    /* Welcome Sticker (targeted) */
     .layered-welcome {
         position: absolute;
-        top: -20px; /* Adjusting top/left slightly so it feels like it floats outside the container */
+        top: -20px; 
         left: -5%;
         max-width: 40%;
-        transform: rotate(-deg); /* Tilted sticker look */
-        z-index: 20; /* Above base image */
-        filter: drop-shadow(3px 3px 0px #000); /* Sticker drop-shadow */
+        transform: rotate(-12deg); /* FIX: Added the missing angle number */
+        z-index: 20; 
+        filter: drop-shadow(3px 3px 0px #000);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth snap */
     }
-   /* NEW: Label01 Background Layer */
+
     .layered-label {
         position: absolute;
         top: -12%;
         left: -8%;
         width: 50%;
         max-width: 320px;
-        z-index: 15;           /* Behind welcome.gif */
-        
-        /* THE FIX: Increased for rounded corners */
+        z-index: 15;           
         border-radius: 18px; 
-        
-        box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6),
-                    inset 0 0 8px rgba(255,255,255,0.3);
-        
-        /* Fixed '1x' to '1px' */
+        box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6), inset 0 0 8px rgba(255,255,255,0.3);
         border: 1px solid #333; 
-        
         background: #000000;
         padding: 4px;
-        transform: rotate(-8deg);   /* Negative = counter-clockwise tilt */
+        transform: rotate(-8deg);   
     }
+
     .layered-enter {
         position: absolute;
-        bottom: 25px; /* Adjusting bottom slightly for outside-of-container feel */
-        left: 30%;
-        transform: translateX(-50%); /* perfectly centered */
-        max-width: 200%;
-        z-index: 40; /* Above base image */
+        bottom: -5px; /* FIX: Moved slightly so it anchors nicely */
+        left: 50%;
+        transform: translateX(-50%); 
+        max-width: 60%; /* FIX: Prevent mobile overflow */
+        min-width: 150px; /* Ensures it doesn't get too small on phones */
+        z-index: 40; 
         filter: drop-shadow(2px 2px 0px #000);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     /* --- MODULAR PRICE GRID --- */
-    .comm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .tier-box { background: #111; border: 2px solid var(--hot-pink); border-radius: var(--inner-radius); padding: 12px; text-align: center; transition: 0.3s; }
-    .tier-box:hover { box-shadow: 0 0 15px var(--hot-pink); transform: translateY(-5px); }
+    .comm-grid { 
+        display: grid; 
+        /* FIX: This makes it 2 columns on desktop, 1 column on phones automatically */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+        gap: 20px; 
+    }
+    
+    .tier-box { background: #111; border: 2px solid var(--hot-pink, #ff007f); border-radius: var(--inner-radius, 12px); padding: 12px; text-align: center; transition: 0.3s; }
+    .tier-box:hover { box-shadow: 0 0 15px var(--hot-pink, #ff007f); transform: translateY(-5px); }
     .tier-box img { width: 100%; border: 1px solid #333; border-radius: 8px; margin-bottom: 10px; }
 
     /* --- ART PROGRESS --- */
-    .workbench { background: #000; border: 2px dashed var(--hot-pink); border-radius: var(--inner-radius); padding: 15px; margin-top: 25px; }
-    .progress-container { background: #222; border: 1px solid var(--hot-pink); height: 28px; border-radius: 50px; margin-top: 10px; overflow: hidden; }
-    .progress-fill { background: linear-gradient(to right, #660066, var(--hot-pink)); height: 100%; }
+    .workbench { background: #000; border: 2px dashed var(--hot-pink, #ff007f); border-radius: var(--inner-radius, 12px); padding: 15px; margin-top: 25px; }
+    .progress-container { background: #222; border: 1px solid var(--hot-pink, #ff007f); height: 28px; border-radius: 50px; margin-top: 10px; overflow: hidden; }
+    .progress-fill { background: linear-gradient(to right, #660066, var(--hot-pink, #ff007f)); height: 100%; }
 
 </style>
 
 <div class="top-art-banner">
     <img src="/images/kittybar.gif" class="kitty-bar-overlay kitty-bar-top" alt="Animated Kitty Border Top">
-    <img src="/images/Image02.jpg" alt="Art Banner" style="width: 100%;">
-    <img src="/images/kittybar.gif" class="kitty-bar-overlay kitty-bar-bottom" alt="Animated Kitty Border Bottom">
+    <img src="/images/Image02.jpg" alt="Art Banner" style="width: 100%; display: block;"> <img src="/images/kittybar.gif" class="kitty-bar-overlay kitty-bar-bottom" alt="Animated Kitty Border Bottom">
 </div>
 
 <a href="/prices" class="layered-sticker-block">
@@ -132,31 +134,29 @@
         <img src="/images/label01.png" class="layered-label" alt="Label Background">
         <img src="/images/welcome.gif" class="layered-welcome" alt="Welcome">
         <img src="/images/welcomechabby.jpg" class="layered-base-img" alt="Commission info + examples">
-        
         <img src="/images/enter.gif" class="layered-enter" alt="Enter">
     </div>
 </a>
 
 <div class="comm-grid">
     <div class="tier-box">
-        <div style="font-weight: bold; margin-bottom: 8px; color: var(--hot-pink);">COLOR SKETCH</div>
-        <img src="/images/Image03.jpg">
-        <div style="font-weight: bold; color: var(--neon-yellow);">$35.00</div>
+        <div style="font-weight: bold; margin-bottom: 8px; color: var(--hot-pink, #ff007f);">COLOR SKETCH</div>
+        <img src="/images/Image03.jpg" alt="Color Sketch Example">
+        <div style="font-weight: bold; color: var(--neon-yellow, #eaff00);">$35.00</div>
     </div>
     <div class="tier-box">
-        <div style="font-weight: bold; margin-bottom: 8px; color: var(--hot-pink);">FULL RENDER</div>
-        <img src="/images/Image06.jpg">
-        <div style="font-weight: bold; color: var(--neon-yellow);">$85.00</div>
+        <div style="font-weight: bold; margin-bottom: 8px; color: var(--hot-pink, #ff007f);">FULL RENDER</div>
+        <img src="/images/Image06.jpg" alt="Full Render Example">
+        <div style="font-weight: bold; color: var(--neon-yellow, #eaff00);">$85.00</div>
     </div>
 </div>
 
 <div class="workbench">
-    <div style="font-weight: bold; color: var(--hot-pink);">ART PROGRESS:</div>
+    <div style="font-weight: bold; color: var(--hot-pink, #ff007f);">ART PROGRESS:</div>
     <p style="font-size: 0.8rem; color: #ccc;">Current Project: Illustration for @GalileoCat</p>
     <div class="progress-container">
         <div class="progress-fill" style="width: 75%;"></div>
     </div>
 </div>
-
 
 {{ end }}
