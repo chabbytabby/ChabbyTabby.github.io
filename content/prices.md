@@ -2,7 +2,7 @@
 title: PRICES
 url: /prices
 layout: prices
-intro_heading: TestingHi there ! I see you are interested in my commissions ヾ(•ω•`)o
+intro_heading: Hi there ! I see you are interested in my commissions ヾ(•ω•`)o
 intro_subtext: >-
   If you want something else that isn't listed here, please give me a DM! I will
   be more than happy to give you a quote and see if I am capable of doing it.
@@ -33,7 +33,7 @@ main_tiers:
     eta: ~ 2-4 weeks
 misc_items:
   - title: Beans
-    price: $10
+    price: $9999
     description: >-
       A even tinier version of your character, details are bean-ified on a small
       blank canvas.
