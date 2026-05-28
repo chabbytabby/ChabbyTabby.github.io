@@ -1,44 +1,90 @@
-# CLOUDCANNON MASTER CONFIGURATION FOR CHABBYTABBY
-# Identifies structural content folders for visual form mapping
+# CLOUDCANNON PRODUCTION CONFIGURATION FOR CHABBYTABBY.COM
+# Visual UI mappings for content parameters, media streams, and pricing matrices
 
 collections_config:
-  commissions:
-    path: content/commissions
+  data:
+    path: data
+    icon: library_books
+    name: Global Site Data
+  content:
+    path: content
     output: true
-    icon: palette
-    name: Commission Settings
-  
-  themes:
-    path: content/themes
-    output: true
-    icon: brush
-    name: Site Themes
+    icon: description
+    name: Page Content
 
-# Maps your custom front-matter metadata parameters to visual user interfaces
+# Defines structural input forms for visual editing blocks
 _inputs:
-  enable_chat:
-    type: checkbox
-    comment: "Turn the Cbox Community Log community chat bar ON or OFF for this page."
-  
+  # Storefront Status Component Controls
   status_message:
     type: select
-    comment: "Change Chabby's current storefront presence status."
+    comment: "Change Chabby's active terminal storefront presence banner indicator."
     options:
       values:
-        - STATUS: EEPY
-        - STATUS: WORKING
-        - STATUS: OPEN FOR COMMS
-        - STATUS: AWAY
-        
-  price:
+        - "STATUS: EEPY 💤"
+        - "STATUS: WORKING 🎨"
+        - "STATUS: OPEN FOR COMMS 🌟"
+        - "STATUS: AWAY 🐾"
+
+  marquee_text:
+    type: text
+    comment: "Modify the text sliding inside the neon global ticker display."
+    options:
+      placeholder: "EX: ✨ COMMISSIONS CLOSED ✨ THANK YOU FOR VISITING CHABBYTABBY.COM ✨"
+
+  # Visual Workbench Progress Controls
+  current_project:
+    type: text
+    comment: "Label for the active project inside the Art Progress section wrapper."
+    options:
+      placeholder: "EX: Illustration for @GalileoCat"
+
+  progress_percentage:
+    type: range
+    comment: "Slide to adjust the fills matrix scale indicator on the visual tracking bar."
+    options:
+      min: 0
+      max: 100
+      step: 5
+
+  # Commission Pricing Tiers Data Models
+  base_price:
     type: number
-    comment: "Set tier pricing value (Do not add currency symbols)."
+    comment: "Set standard pricing base token (Do not manually type currency tags)."
     options:
       format: "0.00"
 
+  add_character_fee:
+    type: number
+    comment: "Pricing matrix modifier for secondary layout injections."
+    options:
+      format: "0.00"
+
+  eta_timeframe:
+    type: text
+    comment: "Turnaround calculation string values printed on pricing detail slots."
+    options:
+      placeholder: "EX: ~ 3-7 days or ~ 1-2 weeks"
+
+  # Media Asset Directories Controls
   image:
     type: image
-    comment: "Upload or select a custom artwork file."
+    comment: "Select or swap graphics rendering inside product placeholder grids."
     options:
       paths:
-        uploads: static/images/gallery/
+        uploads: static/images/
+        dam_uploads: static/images/
+
+  audio_track_file:
+    type: file
+    comment: "Upload raw audio payloads to add items into the Win98 media select loop."
+    options:
+      paths:
+        uploads: static/music/
+
+# Formats output structures to match target front-matter syntax rules
+text_formats:
+  markdown:
+    extensions:
+      - .md
+    options:
+      front_matter: yaml
