@@ -2,32 +2,68 @@
 <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 
 <style>
-    /* Draggable Window */
+    /* --- Retro 98 Window Styling --- */
     .win-container {
-        background: #000;
-        border: 2px solid var(--hot-pink);
+        background: #c0c0c0;
+        border: 2px solid;
+        border-color: #fff #808080 #808080 #fff;
         width: 800px;
-        position: absolute; /* Allows moving */
+        position: absolute;
         touch-action: none;
         user-select: none;
+        padding: 2px;
+        z-index: 1000;
+        margin-top: 20px;
     }
 
     .win-titlebar {
-        background: var(--hot-pink);
-        padding: 5px 10px;
+        background: linear-gradient(to right, #000080, #1084d0);
+        padding: 3px 5px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         color: white;
+        font-family: 'Tahoma', sans-serif;
         font-weight: bold;
+        font-size: 0.8rem;
         cursor: move;
     }
 
+    .win-controls { display: flex; gap: 4px; align-items: center; }
+    
+    .win-btn {
+        width: 16px;
+        height: 14px;
+        background: #c0c0c0;
+        border: 1px solid;
+        border-color: #fff #404040 #404040 #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #000;
+        font-size: 10px;
+        line-height: 1;
+        font-weight: bold;
+    }
+
+    .pop-out-btn {
+        color: white;
+        font-size: 0.6rem;
+        text-decoration: none;
+        border: 1px solid #fff;
+        padding: 0 4px;
+        background: #000080;
+        margin-right: 4px;
+    }
+
     .win-content {
-        padding: 15px;
+        padding: 2px;
         background: #fff;
         height: 500px;
-        resize: both; /* Makes it resizable */
-        overflow: auto;
+        border: 2px inset #808080;
+        overflow: hidden;
+        resize: both;
     }
 
     iframe { width: 100%; height: 100%; border: none; }
@@ -35,11 +71,18 @@
 
 <div class="win-container" id="queue-window">
     <div class="win-titlebar" id="drag-handle">
-        <span>COMMISSION_QUEUE.EXE</span>
-        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8Ax4A2yS3gBxgQ_oFhvWdOCgOo8E7bXO-0hWQ2wDGvJX3sIDSrAivDto1LyXh86nLpWny2gDsLiUA/pubhtml" target="_blank" style="color:white; font-size: 0.7rem;">[POP OUT]</a>
+        <span style="display: flex; align-items: center; gap: 5px;">
+            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-0.png" width="16">
+            COMMISSION_QUEUE.EXE
+        </span>
+        <div class="win-controls">
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8Ax4A2yS3gBxgQ_oFhvWdOCgOo8E7bXO-0hWQ2wDGvJX3sIDSrAivDto1LyXh86nLpWny2gDsLiUA/pubhtml" 
+               target="_blank" class="pop-out-btn">POP_OUT</a>
+            <div class="win-btn" onclick="document.getElementById('queue-window').style.display='none'">X</div>
+        </div>
     </div>
     <div class="win-content">
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8Ax4A2yS3gBxgQ_oFhvWdOCgOo8E7bXO-0hWQ2wDGvJX3sIDSrAivDto1LyXh86nLpWny2gDsLiUA/pubhtml?widget=true&headers=false"></iframe>
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8Ax4A2yS3gBxgQ_oFhvWdOCgOo8E7bXO-0hWQ2wDGvJX3sIDSrAivDto1LyXh86nLpWny2gDsLiUA/pubhtml?widget=true&headers=false" title="Commission Queue"></iframe>
     </div>
 </div>
 
