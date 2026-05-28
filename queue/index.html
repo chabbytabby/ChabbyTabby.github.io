@@ -521,14 +521,65 @@
         
         <div class="main-content">
             
-    <div style="background: #111; border: 2px solid var(--hot-pink); border-radius: var(--inner-radius); padding: 20px;">
-        <h1 style="color: var(--neon-yellow); text-transform: uppercase; margin-top: 0; border-bottom: 2px dashed #333; padding-bottom: 10px;">
-            QUEUE
-        </h1>
-        <div style="line-height: 1.6; color: #eee; font-size: 0.95rem;">
-            
-        </div>
+<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+
+<style>
+     
+    .win-container {
+        background: #000;
+        border: 2px solid var(--hot-pink);
+        width: 800px;
+        position: absolute;  
+        touch-action: none;
+        user-select: none;
+    }
+
+    .win-titlebar {
+        background: var(--hot-pink);
+        padding: 5px 10px;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        font-weight: bold;
+        cursor: move;
+    }
+
+    .win-content {
+        padding: 15px;
+        background: #fff;
+        height: 500px;
+        resize: both;  
+        overflow: auto;
+    }
+
+    iframe { width: 100%; height: 100%; border: none; }
+</style>
+
+<div class="win-container" id="queue-window">
+    <div class="win-titlebar" id="drag-handle">
+        <span>COMMISSION_QUEUE.EXE</span>
+        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8Ax4A2yS3gBxgQ_oFhvWdOCgOo8E7bXO-0hWQ2wDGvJX3sIDSrAivDto1LyXh86nLpWny2gDsLiUA/pubhtml" target="_blank" style="color:white; font-size: 0.7rem;">[POP OUT]</a>
     </div>
+    <div class="win-content">
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8Ax4A2yS3gBxgQ_oFhvWdOCgOo8E7bXO-0hWQ2wDGvJX3sIDSrAivDto1LyXh86nLpWny2gDsLiUA/pubhtml?widget=true&headers=false"></iframe>
+    </div>
+</div>
+
+<script>
+    interact('#queue-window').draggable({
+        allowFrom: '#drag-handle',
+        listeners: {
+            move (event) {
+                const target = event.target;
+                const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+                target.style.transform = `translate(${x}px, ${y}px)`;
+                target.setAttribute('data-x', x);
+                target.setAttribute('data-y', y);
+            }
+        }
+    });
+</script>
 
 
             <div class="draggable-jar draggable-obj" id="drag-jar">
