@@ -10,6 +10,8 @@
   </url><url>
     <loc>http://localhost:1313/links/</loc>
   </url><url>
+    <loc>http://localhost:1313/queue/</loc>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
     <loc>http://localhost:1313/prices/</loc>

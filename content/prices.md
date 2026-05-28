@@ -1,6 +1,7 @@
 ---
 title: "PRICES"
 url: "/prices"
+type: "page"
 layout: "prices"
 
 intro_heading: "Hi there ! I see you are interested in my commissions ヾ(•ω•`)o"
