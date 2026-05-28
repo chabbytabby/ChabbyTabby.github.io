@@ -1,0 +1,44 @@
+# CLOUDCANNON MASTER CONFIGURATION FOR CHABBYTABBY
+# Identifies structural content folders for visual form mapping
+
+collections_config:
+  commissions:
+    path: content/commissions
+    output: true
+    icon: palette
+    name: Commission Settings
+  
+  themes:
+    path: content/themes
+    output: true
+    icon: brush
+    name: Site Themes
+
+# Maps your custom front-matter metadata parameters to visual user interfaces
+_inputs:
+  enable_chat:
+    type: checkbox
+    comment: "Turn the Cbox Community Log community chat bar ON or OFF for this page."
+  
+  status_message:
+    type: select
+    comment: "Change Chabby's current storefront presence status."
+    options:
+      values:
+        - STATUS: EEPY
+        - STATUS: WORKING
+        - STATUS: OPEN FOR COMMS
+        - STATUS: AWAY
+        
+  price:
+    type: number
+    comment: "Set tier pricing value (Do not add currency symbols)."
+    options:
+      format: "0.00"
+
+  image:
+    type: image
+    comment: "Upload or select a custom artwork file."
+    options:
+      paths:
+        uploads: static/images/gallery/
