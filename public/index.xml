@@ -34,7 +34,7 @@
       <link>http://localhost:1313/queue/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/queue/</guid>
-      <description>&lt;p&gt;{{ define &amp;ldquo;main&amp;rdquo; }}&#xA;&lt;h1&gt;TESTING IFRAME&lt;/h1&gt;&#xA;&lt;iframe src=&#34;https://www.wikipedia.org&#34; width=&#34;100%&#34; height=&#34;500px&#34;&gt;&lt;/iframe&gt;&#xA;{{ end }}&lt;/p&gt;</description>
+      <description></description>
     </item>
   </channel>
 </rss>
